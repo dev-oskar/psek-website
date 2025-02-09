@@ -1,8 +1,8 @@
 {
-  "name": "astro-base-template",
+  "name": "psek-website",
   "version": "1.0.0",
   "description": "Astro + tailwindcss + react + mdx base template",
-  "author": "alfadev",
+  "author": "Oskar Pietrucha",
   "license": "MIT",
   "packageManager": "pnpm@9.13.2",
   "scripts": {

@@ -12,11 +12,11 @@
   },
   "params": {
     "footer_description": "Polskie Stowarzyszenie Edukacji Konopnej to organizacja działająca na rzecz zwiększania świadomości społecznej na temat konopi włóknistych oraz ich wszechstronnego zastosowania w przemyśle i medycynie. Poprzez warsztaty oraz współpracę z ekspertami, aktywnie promujemy rzetelną wiedzę o konopiach i ich potencjale gospodarczym.",
-    "email": "oskar.pietrucha@gmail.com",
+    "email": "kontakt@psek.edu.pl",
     "location": "Polska ❤️",
-    "phone": "+000-000-000",
+    "phone": "+48791327982",
     "contact_form_action": "#",
-    "copyright": "Copyright © 2025 proudly crafted by [Oskar Pietrucha](https://github.com/dev-oskar)"
+    "copyright": "Copyright © 2025 proudly crafted by [Oskar Pietrucha](https://github.com/dev-oskar) using Astro and [alfadev-astro-starter](https://github.com/diego-alfadev/alfadev-astro-starter)."
   },
   "metadata": {
     "meta_author": "alfadev",

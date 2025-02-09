@@ -6,47 +6,47 @@
     },
     {
       "name": "Strefa wiedzy",
-      "url": "/features",
+      "url": "/wiedza",
       "hasChildren": true,
       "children": [
         {
           "name": "Dla pacjenta",
-          "url": "wiedza/dla-pacjenta"
+          "url": "/wiedza/dla-pacjenta"
         },
         {
           "name": "Dla biznesu",
-          "url": "wiedza/dla-biznesu"
+          "url": "/wiedza/dla-biznesu"
         },
         {
           "name": "Dla lekarzy",
-          "url": "wiedza/dla-lekarzy"
+          "url": "/wiedza/dla-lekarzy"
         }
       ]
     },
     {
       "name": "Inspiracja",
-      "url": "/theme",
+      "url": "/inspiracja",
       "hasChildren": true,
       "children": [
         {
           "name": "Włókno",
-          "url": "inspiracja/dla-pacjenta"
+          "url": "/inspiracja/dla-pacjenta"
         },
         {
           "name": "Paździerz",
-          "url": "inspiracja/pazdzierz"
+          "url": "/inspiracja/pazdzierz"
         },
         {
           "name": "Liście",
-          "url": "inspiracja/liscie"
+          "url": "/inspiracja/liscie"
         },
         {
           "name": "Nasiona",
-          "url": "inspiracja/nasiona"
+          "url": "/inspiracja/nasiona"
         },
         {
           "name": "Kwiat",
-          "url": "inspiracja/kwiat"
+          "url": "/inspiracja/kwiat"
         }
       ]
     },
