@@ -1,0 +1,36 @@
+{
+  "site": {
+    "title": "Polskie Stowarzyszenie Edukacji Konopnej",
+    "base_url": "",
+    "base_path": "/",
+    "trailing_slash": false,
+    "favicon": "/images/favicon.ico",
+    "logo": "/images/logo-2.png",
+    "logo_width": "47",
+    "logo_height": "47",
+    "logo_text": "PSEK"
+  },
+  "params": {
+    "footer_description": "Polskie Stowarzyszenie Edukacji Konopnej to organizacja działająca na rzecz zwiększania świadomości społecznej na temat konopi włóknistych oraz ich wszechstronnego zastosowania w przemyśle i medycynie. Poprzez warsztaty oraz współpracę z ekspertami, aktywnie promujemy rzetelną wiedzę o konopiach i ich potencjale gospodarczym.",
+    "email": "oskar.pietrucha@gmail.com",
+    "location": "Polska ❤️",
+    "phone": "+000-000-000",
+    "contact_form_action": "#",
+    "copyright": "Copyright © 2025 proudly crafted by [Oskar Pietrucha](https://github.com/dev-oskar)"
+  },
+  "metadata": {
+    "meta_author": "alfadev",
+    "meta_image": "/images/logo-2.png",
+    "meta_description": "Polskie Stowarzyszenie Edukacji Konopnej.",
+    "meta_keywords": [
+      "PSEK",
+      "psek.edu.pl",
+      "konopie",
+      "konopie włókniste",
+      "konopie edukacja",
+      "konopie wiedza",
+      "Polskie Stowarzyszenie Edukacji Konopnej"
+    ],
+    "meta_application_name": "psek-edu-pl"
+  }
+}

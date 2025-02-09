@@ -1,0 +1,76 @@
+{
+  "main": [
+    {
+      "name": "Strona Główna",
+      "url": "/"
+    },
+    {
+      "name": "Strefa wiedzy",
+      "url": "/features",
+      "hasChildren": true,
+      "children": [
+        {
+          "name": "Dla pacjenta",
+          "url": "wiedza/dla-pacjenta"
+        },
+        {
+          "name": "Dla biznesu",
+          "url": "wiedza/dla-biznesu"
+        },
+        {
+          "name": "Dla lekarzy",
+          "url": "wiedza/dla-lekarzy"
+        }
+      ]
+    },
+    {
+      "name": "Inspiracja",
+      "url": "/theme",
+      "hasChildren": true,
+      "children": [
+        {
+          "name": "Włókno",
+          "url": "inspiracja/dla-pacjenta"
+        },
+        {
+          "name": "Paździerz",
+          "url": "inspiracja/pazdzierz"
+        },
+        {
+          "name": "Liście",
+          "url": "inspiracja/liscie"
+        },
+        {
+          "name": "Nasiona",
+          "url": "inspiracja/nasiona"
+        },
+        {
+          "name": "Kwiat",
+          "url": "inspiracja/kwiat"
+        }
+      ]
+    },
+    {
+      "name": "O konopiach",
+      "url": "/o-konopiach"
+    },
+    {
+      "name": "Aktualności",
+      "url": "/aktualnosci"
+    },
+    {
+      "name": "Kontakt",
+      "url": "/about"
+    }
+  ],
+  "footer": [
+    {
+      "name": "Strona główna",
+      "url": "/"
+    },
+    {
+      "name": "Kontakt",
+      "url": "/contact"
+    }
+  ]
+}
