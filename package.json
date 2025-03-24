@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "npx tinacms dev -c 'astro dev'",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "astro check && astro build && tinacms build",
     "preview": "astro preview",
     "astro": "astro",
     "format": "prettier -w ."
