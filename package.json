@@ -5,9 +5,9 @@
   "author": "Oskar Pietrucha",
   "license": "MIT",
   "scripts": {
-    "dev": "npx tinacms dev -c 'astro dev'",
-    "start": "astro dev",
-    "build": "astro check && astro build && tinacms build",
+    "dev": "tinacms dev -c \"astro dev\"",
+    "build": "tinacms build && astro build",
+    "start": "tinacms build && astro start",
     "preview": "astro preview",
     "astro": "astro",
     "format": "prettier -w ."
