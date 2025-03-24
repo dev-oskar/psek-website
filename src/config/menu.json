@@ -24,39 +24,23 @@
       ]
     },
     {
-      "name": "Inspiracja",
-      "url": "/inspiracja",
+      "name": "ABC Konopi",
+      "url": "/wiedza/abc-konopi"
+    },
+    {
+      "name": "Więcej",
+      "url": "/",
       "hasChildren": true,
       "children": [
         {
-          "name": "Włókno",
-          "url": "/inspiracja/dla-pacjenta"
+          "name": "Strefa badań",
+          "url": "/wiedza/strefa-badan"
         },
         {
-          "name": "Paździerz",
-          "url": "/inspiracja/pazdzierz"
-        },
-        {
-          "name": "Liście",
-          "url": "/inspiracja/liscie"
-        },
-        {
-          "name": "Nasiona",
-          "url": "/inspiracja/nasiona"
-        },
-        {
-          "name": "Kwiat",
-          "url": "/inspiracja/kwiat"
+          "name": "Aktualności",
+          "url": "/aktualnosci"
         }
       ]
-    },
-    {
-      "name": "O konopiach",
-      "url": "/o-konopiach"
-    },
-    {
-      "name": "Aktualności",
-      "url": "/aktualnosci"
     },
     {
       "name": "Kontakt",

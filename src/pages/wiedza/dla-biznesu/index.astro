@@ -1,0 +1,145 @@
+---
+import PageHeader from "@/components/core/PageHeader.astro";
+import Base from "@/layouts/Base.astro";
+import Section from "@/components/core/Section.astro";
+import CounterComponent from "@/components/CounterComponent.astro";
+
+const pageData = {
+  title: "Wiedza dla biznesu",
+  description: "Informacje i analizy dla przedsiębiorców zainteresowanych rynkiem konopnym w Polsce i Europie.",
+    data: {} // Add this line to include the 'data' property
+};
+
+// Market opportunities data
+const opportunities = [
+  {
+    title: "Produkty CBD",
+    content: "Rynek produktów CBD rośnie w tempie 35% rocznie. Obejmuje suplementy, kosmetyki, produkty dla zwierząt.",
+    icon: "trending-up"
+  },
+  {
+    title: "Materiały budowlane",
+    content: "Izolacje z konopi, hempcrete (beton konopny) - ekologiczne materiały z rosnącym popytem.",
+    icon: "home"
+  },
+  {
+    title: "Tekstylia",
+    content: "Włókno konopne jest trwałe, antybakteryjne i ekologiczne - idealny surowiec dla zrównoważonej mody.",
+    icon: "scissors"
+  },
+  {
+    title: "Żywność",
+    content: "Nasiona, oleje, białko konopne - segment ze stabilnym wzrostem w kategorii superfoods.",
+    icon: "coffee"
+  }
+];
+---
+
+<Base>
+  <section class="py-16">
+    <div class="container">
+      <PageHeader page_data={pageData} />
+      
+      <Section 
+        section={{
+          title: "Rynek konopi w Polsce i Europie",
+          content: "Branża konopna w Europie przeżywa dynamiczny rozwój. Według prognoz, europejski rynek konopi osiągnie wartość 3,2 miliarda euro do 2025 roku. Polska, dzięki sprzyjającym warunkom klimatycznym i tradycjom uprawy, ma szansę stać się jednym z liderów tego sektora.",
+          image: "/images/plantacja-1.JPEG",
+          image_position: "left",
+          buttons: []
+        }}
+      />
+      
+      <CounterComponent
+        counter={[
+          {
+            name: "Roczny wzrost rynku",
+            number: 35,
+            icon: "trending-up"
+          },
+          {
+            name: "Mld € wartość rynku EU do 2025",
+            number: 3.2,
+            icon: "euro"
+          },
+          {
+            name: "Tys. ha upraw w UE",
+            number: 50,
+            icon: "globe"
+          }
+        ]}
+      />
+      
+      <div class="mt-16">
+        <h2 class="mb-8 text-center">Obszary możliwości biznesowych</h2>
+        
+        <div class="row">
+          {opportunities.map((opportunity) => (
+            <div class="col-12 md:col-6 lg:col-3 mb-8">
+              <div class="bg-surface h-full rounded-lg p-6 shadow-md hover:shadow-lg transition-all">
+                <div class="flex items-center mb-4">
+                  <span class="text-accent mr-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      {opportunity.icon === "trending-up" && (
+                        <path d="M23 6L13.5 15.5L8.5 10.5L1 18"></path><polyline points="17 6 23 6 23 12"></polyline>
+                      )}
+                      {opportunity.icon === "home" && (
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline>
+                      )}
+                      {opportunity.icon === "scissors" && (
+                        <circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" y1="4" x2="8.12" y2="15.88"></line><line x1="14.47" y1="14.48" x2="20" y2="20"></line><line x1="8.12" y1="8.12" x2="12" y2="12"></line>
+                      )}
+                      {opportunity.icon === "coffee" && (
+                        <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line>
+                      )}
+                    </svg>
+                  </span>
+                  <h3 class="text-lg">{opportunity.title}</h3>
+                </div>
+                <p class="text-text-secondary">{opportunity.content}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      <div class="mt-16">
+        <h2 class="mb-8 text-center">Regulacje prawne i certyfikacja</h2>
+        
+        <div class="row">
+          <div class="col-12 md:col-6 mb-8">
+            <div class="bg-surface h-full rounded-lg p-6 shadow-md">
+              <h3 class="mb-4">Prawo w Polsce</h3>
+              <ul class="list-disc pl-6 mb-4">
+                <li class="mb-2">Uprawa konopi włóknistych wymaga zezwolenia</li>
+                <li class="mb-2">Dozwolone są odmiany z unijnego katalogu, zawierające poniżej 0,2% THC</li>
+                <li class="mb-2">Produkty CBD nie mogą deklarować działania leczniczego</li>
+                <li class="mb-2">Dopuszczalne jest stosowanie wszystkich części konopi włóknistych poza kwiatostanami</li>
+              </ul>
+              <p class="text-text-secondary">Informacje prezentowane mają charakter poglądowy. Dokładne regulacje należy konsultować z prawnikiem.</p>
+            </div>
+          </div>
+          
+          <div class="col-12 md:col-6 mb-8">
+            <div class="bg-surface h-full rounded-lg p-6 shadow-md">
+              <h3 class="mb-4">Certyfikacja produktów</h3>
+              <p class="text-text-secondary mb-4">Produkty konopne mogą uzyskać różne certyfikaty potwierdzające ich jakość i bezpieczeństwo:</p>
+              <ul class="list-disc pl-6">
+                <li class="mb-2"><b class="text-accent">Rolnictwo ekologiczne</b> - certyfikacja upraw ekologicznych</li>
+                <li class="mb-2"><b class="text-accent">GMP</b> - dobra praktyka produkcyjna, szczególnie ważna dla produktów spożywczych i kosmetyków</li>
+                <li class="mb-2"><b class="text-accent">ISO</b> - międzynarodowe standardy jakości</li>
+                <li class="mb-2"><b class="text-accent">HACCP</b> - system zapewnienia bezpieczeństwa żywności</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-12 bg-accent/10 p-8 rounded-lg shadow-md text-center">
+        <h3 class="mb-4">Wsparcie dla przedsiębiorców</h3>
+        <p class="text-text-secondary mb-6">W PSEK oferujemy przedsiębiorcom konsultacje, szkolenia i networking branżowy. Pomożemy Ci zrozumieć aspekty prawne, nawiązać kontakty z dostawcami i wspólnie wypracować strategię rozwoju Twojej konopnej działalności.</p>
+        <a href="/contact" class="btn-accent inline-block">Umów konsultację</a>
+      </div>
+    </div>
+  </section>
+</Base>

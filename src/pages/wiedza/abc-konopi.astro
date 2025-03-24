@@ -1,0 +1,78 @@
+---
+import PageHeader from "@/components/core/PageHeader.astro";
+import Base from "@/layouts/Base.astro";
+import Gallery from "@/components/Gallery.astro";
+
+const pageData = {
+  title: "ABC Konopi - Podstawowa wiedza",
+  description: "Poznaj podstawy na temat konopi - od botaniki po zastosowania medyczne i przemysłowe.",
+  data: {} // Add this line to include the 'data' property
+};
+
+const galleryData = {
+  title: "Rodzaje konopi",
+  images: [
+    "/images/plantacja-1.JPEG",
+    "/images/plantacja-2.JPEG",
+    "/images/przetworstwo-1.JPEG",
+    "/images/psek-zalozenie.JPEG"
+  ]
+};
+---
+
+<Base>
+  <section class="py-16">
+    <div class="container">
+      <PageHeader page_data={pageData} />
+      
+      <div class="row mb-10">
+        <div class="col-12 md:col-6">
+          <h2 class="mb-5">Czym są konopie?</h2>
+          <p class="text-text-secondary mb-4">
+            Konopie (Cannabis sativa L.) to roślina jednoroczna z rodziny konopiowatych. 
+            Wyróżniamy dwa główne podgatunki:
+          </p>
+          <ul class="list-disc pl-6 mb-8">
+            <li class="mb-2"><b class="text-accent">Konopie włókniste</b> - zawierają poniżej 0,2% THC i są legalne w Polsce</li>
+            <li class="mb-2"><b class="text-accent">Konopie indyjskie</b> - zawierają wyższe stężenie THC i podlegają ścisłej kontroli</li>
+          </ul>
+        </div>
+        
+        <div class="col-12 md:col-6">
+          <h2 class="mb-5">Podstawowe zastosowania</h2>
+          <p class="text-text-secondary mb-4">
+            Konopie są niezwykle wszechstronną rośliną o wielu zastosowaniach:
+          </p>
+          <ul class="list-disc pl-6">
+            <li class="mb-2"><b class="text-accent">Medycyna</b> - oleje CBD, suplementy diety, leki</li>
+            <li class="mb-2"><b class="text-accent">Przemysł</b> - włókna, tkaniny, izolacje, bioplastiki</li>
+            <li class="mb-2"><b class="text-accent">Budownictwo</b> - materiały izolacyjne, hempcrete (beton konopny)</li>
+            <li class="mb-2"><b class="text-accent">Żywność</b> - nasiona, oleje, białko konopne</li>
+            <li class="mb-2"><b class="text-accent">Kosmetyki</b> - kremy, balsamy, szampony</li>
+          </ul>
+        </div>
+      </div>
+      
+      <Gallery gallery={galleryData} cols={2} />
+      
+      <div class="row mt-16">
+        <div class="col-12">
+          <h2 class="mb-5 text-center">Historia konopi w Polsce</h2>
+          <p class="text-text-secondary mb-6">
+            Konopie mają w Polsce długą tradycję. Przez wieki były powszechnie uprawiane dla włókna wykorzystywanego do produkcji lin, żagli i odzieży. W latach 50-tych XX wieku Polska była jednym z największych producentów konopi w Europie. Obecnie obserwujemy renesans tej uprawy ze względu na ekologiczne i zdrowotne walory rośliny.
+          </p>
+          
+          <div class="bg-surface p-6 rounded-lg shadow-md">
+            <h3 class="mb-3">Ciekawostki:</h3>
+            <ul class="list-disc pl-6">
+              <li class="mb-2">Konopie absorbują 4x więcej CO2 niż większość roślin uprawnych</li>
+              <li class="mb-2">Są naturalnym bioakumulatorem - potrafią oczyszczać glebę z metali ciężkich</li>
+              <li class="mb-2">Z hektara konopi można uzyskać 4x więcej papieru niż z hektara lasu</li>
+              <li class="mb-2">Konopie nie wymagają pestycydów i zużywają mniej wody niż większość upraw</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

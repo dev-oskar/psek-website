@@ -1,0 +1,263 @@
+---
+import PageHeader from "@/components/core/PageHeader.astro";
+import Base from "@/layouts/Base.astro";
+import Section from "@/components/core/Section.astro";
+import { Image } from "astro:assets";
+
+const pageData = {
+  title: "Strefa wiedzy",
+  description: "Kompleksowe i rzetelne źródło informacji o konopiach dla pacjentów, lekarzy i przedsiębiorców.",
+    data: {}, // Add this line to include the 'data' property   
+};
+
+// Knowledge sections
+const knowledgeSections = [
+  {
+    title: "Dla pacjenta",
+    description: "Praktyczne informacje o produktach konopnych, ich działaniu i zastosowaniach zdrowotnych.",
+    icon: "user",
+    image: "/images/plantacja-1.JPEG",
+    url: "/wiedza/dla-pacjenta"
+  },
+  {
+    title: "Dla biznesu",
+    description: "Analizy rynku, regulacje prawne i możliwości biznesowe w sektorze konopnym.",
+    icon: "briefcase",
+    image: "/images/plantacja-2.JPEG",
+    url: "/wiedza/dla-biznesu"
+  },
+  {
+    title: "Dla lekarzy",
+    description: "Najnowsze badania naukowe i wytyczne kliniczne dotyczące medycyny konopnej.",
+    icon: "activity",
+    image: "/images/psek-zalozenie.JPEG",
+    url: "/wiedza/dla-lekarzy"
+  },
+  {
+    title: "Strefa badań",
+    description: "Projekty badawcze, publikacje naukowe i współpraca nauki z przemysłem.",
+    icon: "search",
+    image: "/images/przetworstwo-1.JPEG",
+    url: "/wiedza/strefa-badan"
+  }
+];
+
+// Featured articles
+const featuredArticles = [
+  {
+    title: "Olej CBD - co warto wiedzieć?",
+    excerpt: "Kompendium wiedzy o właściwościach oleju CBD, jego działaniu i sposobach stosowania...",
+    category: "Dla pacjenta",
+    date: "2024-02-15",
+    image: "/images/plantacja-1.JPEG",
+    url: "/wiedza/dla-pacjenta/olej-cbd"
+  },
+  {
+    title: "Kannabinoidy i układ endokannabinoidowy",
+    excerpt: "Jak działa układ endokannabinoidowy i jaką rolę pełnią w nim kannabinoidy roślinne...",
+    category: "Dla lekarzy",
+    date: "2024-01-20",
+    image: "/images/plantacja-2.JPEG",
+    url: "/wiedza/dla-lekarzy/uklad-endokannabinoidowy"
+  },
+  {
+    title: "Możliwości biznesowe w sektorze konopnym",
+    excerpt: "Analiza potencjału ekonomicznego i kierunków rozwoju branży konopnej w Polsce...",
+    category: "Dla biznesu",
+    date: "2023-12-10",
+    image: "/images/przetworstwo-1.JPEG",
+    url: "/wiedza/dla-biznesu/mozliwosci-biznesowe"
+  }
+];
+---
+
+<Base>
+  <section class="py-16">
+    <div class="container">
+      <PageHeader page_data={pageData} />
+      
+      <Section 
+        section={{
+          title: "Wiedza oparta na faktach",
+          content: "W PSEK stawiamy na rzetelne i oparte na dowodach naukowych informacje o konopiach. Nasza misja to edukacja społeczeństwa i promowanie odpowiedzialnego podejścia do konopi w medycynie, biznesie i codziennym życiu.",
+          image: "/images/psek-zalozenie.JPEG",
+          image_position: "right",
+            buttons: []
+        }}
+      />
+      
+      <!-- Knowledge sections -->
+      <div class="mt-16">
+        <h2 class="mb-10 text-center">Eksploruj obszary wiedzy</h2>
+        
+        <div class="row">
+          {knowledgeSections.map((section) => (
+            <div class="col-12 md:col-6 mb-8">
+              <a href={section.url} class="block group">
+                <div class="bg-surface rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all h-full">
+                  <div class="h-48 overflow-hidden">
+                    <img 
+                      src={section.image} 
+                      alt={section.title} 
+                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                    />
+                  </div>
+                  <div class="p-6">
+                    <div class="flex items-center mb-4">
+                      <span class="text-accent mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          {section.icon === "user" && (
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle>
+                          )}
+                          {section.icon === "briefcase" && (
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                          )}
+                          {section.icon === "activity" && (
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                          )}
+                          {section.icon === "search" && (
+                            <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                          )}
+                        </svg>
+                      </span>
+                      <h3 class="text-xl group-hover:text-accent transition-colors">{section.title}</h3>
+                    </div>
+                    <p class="text-text-secondary">{section.description}</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      <!-- Featured articles -->
+      <div class="mt-16">
+        <h2 class="mb-10 text-center">Polecane artykuły</h2>
+        
+        <div class="row">
+          {featuredArticles.map((article, index) => (
+            <div class="col-12 md:col-4 mb-8">
+              <a href={article.url} class="block group">
+                <div class="bg-surface rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all h-full">
+                  <div class="h-48 overflow-hidden">
+                    <img 
+                      src={article.image} 
+                      alt={article.title} 
+                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                    />
+                  </div>
+                  <div class="p-6">
+                    <div class="flex justify-between items-center mb-3">
+                      <span class="bg-accent/10 text-accent text-xs px-3 py-1 rounded-full">{article.category}</span>
+                      <span class="text-text-secondary text-sm">{new Date(article.date).toLocaleDateString('pl-PL')}</span>
+                    </div>
+                    <h3 class="mb-3 group-hover:text-accent transition-colors">{article.title}</h3>
+                    <p class="text-text-secondary mb-4">{article.excerpt}</p>
+                    <span class="text-accent font-medium group-hover:underline">Czytaj więcej →</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          ))}
+        </div>
+        
+        <div class="text-center mt-6">
+          <a href="/wiedza/wszystkie-artykuly" class="btn-accent">Zobacz wszystkie artykuły</a>
+        </div>
+      </div>
+      
+      <!-- Resources -->
+      <div class="mt-16">
+        <h2 class="mb-10 text-center">Materiały edukacyjne</h2>
+        
+        <div class="row">
+          <div class="col-12 md:col-6 lg:col-3 mb-8">
+            <div class="bg-surface rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all text-center p-6 h-full">
+              <div class="flex justify-center mb-4">
+                <span class="text-accent">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                  </svg>
+                </span>
+              </div>
+              <h3 class="mb-3">E-booki</h3>
+              <p class="text-text-secondary mb-4">Kompleksowe przewodniki na temat konopi i produktów konopnych.</p>
+              <a href="/wiedza/ebooki" class="text-accent hover:underline">Pobierz bezpłatnie →</a>
+            </div>
+          </div>
+          
+          <div class="col-12 md:col-6 lg:col-3 mb-8">
+            <div class="bg-surface rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all text-center p-6 h-full">
+              <div class="flex justify-center mb-4">
+                <span class="text-accent">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                  </svg>
+                </span>
+              </div>
+              <h3 class="mb-3">Webinary</h3>
+              <p class="text-text-secondary mb-4">Nagrania webinarów z ekspertami z dziedziny medycyny konopnej.</p>
+              <a href="/wiedza/webinary" class="text-accent hover:underline">Oglądaj online →</a>
+            </div>
+          </div>
+          
+          <div class="col-12 md:col-6 lg:col-3 mb-8">
+            <div class="bg-surface rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all text-center p-6 h-full">
+              <div class="flex justify-center mb-4">
+                <span class="text-accent">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                  </svg>
+                </span>
+              </div>
+              <h3 class="mb-3">Infografiki</h3>
+              <p class="text-text-secondary mb-4">Wizualne przedstawienie najważniejszych informacji o konopiach.</p>
+              <a href="/wiedza/infografiki" class="text-accent hover:underline">Przeglądaj i pobierz →</a>
+            </div>
+          </div>
+          
+          <div class="col-12 md:col-6 lg:col-3 mb-8">
+            <div class="bg-surface rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all text-center p-6 h-full">
+              <div class="flex justify-center mb-4">
+                <span class="text-accent">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polygon points="10 8 16 12 10 16 10 8"></polygon>
+                  </svg>
+                </span>
+              </div>
+              <h3 class="mb-3">Podcasty</h3>
+              <p class="text-text-secondary mb-4">Rozmowy z ekspertami na tematy związane z konopiami i kannabinoidami.</p>
+              <a href="/wiedza/podcasty" class="text-accent hover:underline">Słuchaj →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Newsletter -->
+      <div class="mt-16 bg-accent/10 p-8 rounded-lg shadow-md text-center">
+        <h3 class="mb-4">Bądź na bieżąco</h3>
+        <p class="text-text-secondary mb-6">Zapisz się do naszego newslettera, aby otrzymywać najnowsze materiały edukacyjne i informacje z branży konopnej.</p>
+        
+        <form class="max-w-lg mx-auto">
+          <div class="flex flex-col sm:flex-row gap-3">
+            <input 
+              type="email" 
+              placeholder="Twój adres email" 
+              class="form-control flex-grow"
+              required
+            />
+            <button type="submit" class="btn-accent whitespace-nowrap">Zapisz się</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</Base>

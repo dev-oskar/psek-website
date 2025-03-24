@@ -1,0 +1,251 @@
+---
+import Base from "@/layouts/Base.astro";
+import { Image } from "astro:assets";
+import dateFormat from "@/lib/utils/dateFormat";
+
+// Przykładowe dane artykułu (docelowo powinny pochodzić z CMS)
+const article = {
+  title: "Olej CBD - co warto wiedzieć?",
+  category: "Dla pacjenta",
+  author: "dr Joanna Kowalska",
+  date: "2024-02-15",
+  featuredImage: "/images/plantacja-1.JPEG",
+  excerpt:
+    "Kompendium wiedzy o właściwościach oleju CBD, jego działaniu i sposobach stosowania.",
+  content: `
+    <h2>Czym jest olej CBD?</h2>
+    <p>
+      Olej CBD (kannabidiolowy) to ekstrakt pozyskiwany z konopi włóknistych (Cannabis sativa L.), 
+      zawierający kannabidiol (CBD) oraz inne związki aktywne biologicznie, takie jak kannabinoidy, 
+      terpeny i flawonoidy. W przeciwieństwie do THC (tetrahydrokannabinolu), CBD nie ma działania psychoaktywnego, 
+      co oznacza, że nie wywołuje "haju" ani zmian świadomości.
+    </p>
+    
+    <h2>Jak działa CBD?</h2>
+    <p>
+      CBD oddziałuje na układ endokannabinoidowy (ECS) - sieć receptorów w organizmie człowieka, 
+      która uczestniczy w regulacji wielu procesów fizjologicznych, takich jak odczuwanie bólu, 
+      nastrój, apetyt, pamięć czy funkcje immunologiczne. W przeciwieństwie do THC, CBD nie wiąże się 
+      bezpośrednio z receptorami kannabinoidowymi CB1 i CB2, lecz wpływa na nie pośrednio, 
+      modyfikując ich aktywność.
+    </p>
+    
+    <h2>Potencjalne korzyści zdrowotne</h2>
+    <p>
+      Badania naukowe sugerują, że CBD może mieć następujące właściwości:
+    </p>
+    <ul>
+      <li>Przeciwzapalne i przeciwbólowe</li>
+      <li>Przeciwlękowe i antydepresyjne</li>
+      <li>Neuroprotekcyjne</li>
+      <li>Przeciwdrgawkowe (w leczeniu niektórych rodzajów padaczki)</li>
+      <li>Wspomagające sen</li>
+    </ul>
+    
+    <h2>Jak wybierać olej CBD?</h2>
+    <p>
+      Przy wyborze oleju CBD warto zwrócić uwagę na:
+    </p>
+    <ul>
+      <li><strong>Stężenie CBD</strong> - wyrażone w procentach lub miligramach</li>
+      <li><strong>Metodę ekstrakcji</strong> - najlepsza jakość uzyskiwana jest przy ekstrakcji CO₂ w stanie nadkrytycznym</li>
+      <li><strong>Typ ekstraktu</strong> - izolat, szerokie spektrum lub pełne spektrum</li>
+      <li><strong>Certyfikaty i badania</strong> - produkty powinny mieć badania potwierdzające skład i czystość</li>
+    </ul>
+    
+    <h2>Dawkowanie</h2>
+    <p>
+      Dawkowanie oleju CBD jest kwestią indywidualną i zależy od wielu czynników, takich jak masa ciała, 
+      metabolizm, oczekiwane efekty czy dolegliwości. Zaleca się rozpoczęcie od małych dawek 
+      (np. 5-10 mg dziennie) i stopniowe zwiększanie w razie potrzeby. Olej CBD najlepiej aplikować 
+      podjęzykowo i przytrzymać przez około 60 sekund przed połknięciem.
+    </p>
+    
+    <h2>Bezpieczeństwo i efekty uboczne</h2>
+    <p>
+      CBD jest generalnie uważany za bezpieczny, jednak może wywoływać efekty uboczne, takie jak:
+    </p>
+    <ul>
+      <li>Suchość w ustach</li>
+      <li>Senność lub pobudzenie</li>
+      <li>Zmiany apetytu</li>
+      <li>Przejściowe spadki ciśnienia krwi</li>
+    </ul>
+    <p>
+      CBD może wchodzić w interakcje z niektórymi lekami, szczególnie tymi metabolizowanymi przez cytochrom P450. 
+      W przypadku przyjmowania leków na receptę, warto skonsultować się z lekarzem przed rozpoczęciem 
+      stosowania CBD.
+    </p>
+    
+    <h2>Status prawny</h2>
+    <p>
+      W Polsce produkty z CBD pochodzące z konopi włóknistych (zawierające poniżej 0,2% THC) są legalne. 
+      Należy jednak pamiętać, że przepisy dotyczące CBD różnią się w zależności od kraju.
+    </p>
+  `,
+  relatedArticles: [
+    {
+      title: "Kannabinoidy i układ endokannabinoidowy",
+      url: "/wiedza/dla-pacjenta/uklad-endokannabinoidowy",
+    },
+    {
+      title: "Różnica między CBD a THC",
+      url: "/wiedza/dla-pacjenta/cbd-vs-thc",
+    },
+    {
+      title: "Jak stosować olej CBD?",
+      url: "/wiedza/dla-pacjenta/stosowanie-oleju-cbd",
+    },
+  ],
+};
+
+// Schema.org metadata
+const schemaOrgArticle = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: article.title,
+  author: {
+    "@type": "Person",
+    name: article.author,
+  },
+  datePublished: article.date,
+  image: article.featuredImage,
+  description: article.excerpt,
+  publisher: {
+    "@type": "Organization",
+    name: "Polskie Stowarzyszenie Edukacji Konopnej",
+    logo: {
+      "@type": "ImageObject",
+      url: "/images/logo-2.png",
+    },
+  },
+};
+---
+
+<Base>
+  <article class="py-16">
+    <div class="container">
+      <!-- Article header -->
+      <header class="mb-10">
+        <div class="flex items-center gap-3 mb-4">
+          <a href="/wiedza" class="text-accent hover:underline">Wiedza</a>
+          <span class="text-text-secondary">/</span>
+          <a
+            href={`/wiedza/${article.category.toLowerCase().replace(/\s+/g, "-")}`}
+            class="text-accent hover:underline">{article.category}</a
+          >
+        </div>
+
+        <h1 class="mb-4">{article.title}</h1>
+
+        <div class="flex flex-wrap items-center gap-4 text-text-secondary mb-6">
+          <span>{article.author}</span>
+          <span>•</span>
+          <time datetime={article.date}>{dateFormat(article.date)}</time>
+        </div>
+
+        <p class="text-xl text-text-secondary max-w-3xl">{article.excerpt}</p>
+      </header>
+
+      <!-- Featured image -->
+      <div class="mb-10">
+        <Image
+          src={article.featuredImage}
+          alt={article.title}
+          width={1200}
+          height={630}
+          class="rounded-lg w-full h-auto max-h-[500px] object-cover"
+        />
+      </div>
+
+      <!-- Article content -->
+      <div class="row">
+        <div class="col-12 lg:col-8">
+          <div class="prose prose-lg max-w-none" set:html={article.content} />
+
+          <!-- Author info -->
+          <div
+            class="mt-10 p-6 bg-surface rounded-lg shadow-md flex flex-col md:flex-row items-center gap-6"
+          >
+            <div
+              class="w-24 h-24 rounded-full overflow-hidden bg-accent flex items-center justify-center text-white text-2xl"
+            >
+              {
+                article.author
+                  .split(" ")
+                  .map((name) => name[0])
+                  .join("")
+              }
+            </div>
+            <div>
+              <h3 class="mb-2">{article.author}</h3>
+              <p class="text-text-secondary">
+                Ekspert PSEK w dziedzinie kannabinoidów. Doktor nauk medycznych,
+                specjalista w zakresie fitoterapii i medycyny konopnej.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-12 lg:col-4 mt-10 lg:mt-0">
+          <div class="sticky top-24">
+            <div class="bg-surface p-6 rounded-lg shadow-md mb-6">
+              <h3 class="mb-4">Spis treści</h3>
+              <ul class="space-y-2">
+                <li>
+                  <a href="#" class="text-accent hover:underline"
+                    >Czym jest olej CBD?</a>
+                </li>
+                <li>
+                  <a href="#" class="text-accent hover:underline"
+                    >Jak działa CBD?</a>
+                </li>
+                <li>
+                  <a href="#" class="text-accent hover:underline"
+                    >Potencjalne korzyści zdrowotne</a>
+                </li>
+                <li>
+                  <a href="#" class="text-accent hover:underline"
+                    >Jak wybierać olej CBD?</a>
+                </li>
+                <li>
+                  <a href="#" class="text-accent hover:underline">Dawkowanie</a>
+                </li>
+                <li>
+                  <a href="#" class="text-accent hover:underline"
+                    >Bezpieczeństwo i efekty uboczne</a>
+                </li>
+                <li>
+                  <a href="#" class="text-accent hover:underline"
+                    >Status prawny</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-surface p-6 rounded-lg shadow-md">
+              <h3 class="mb-4">Powiązane artykuły</h3>
+              <ul class="space-y-4">
+                {
+                  article.relatedArticles.map((related) => (
+                    <li>
+                      <a href={related.url} class="text-accent hover:underline">
+                        {related.title}
+                      </a>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Schema.org metadata -->
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(schemaOrgArticle)}
+  />
+</Base>

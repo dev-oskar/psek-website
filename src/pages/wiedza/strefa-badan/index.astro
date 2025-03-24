@@ -1,0 +1,186 @@
+---
+import PageHeader from "@/components/core/PageHeader.astro";
+import Base from "@/layouts/Base.astro";
+import Section from "@/components/core/Section.astro";
+
+const pageData = {
+  title: "Strefa badań naukowych",
+  description:
+    "Przegląd najnowszych badań nad konopiami, projekty badawcze oraz współpraca nauki z biznesem w sektorze konopnym.",
+  data: {}, // Add this line to include the 'data' property
+};
+
+// Research categories
+const researchCategories = [
+  {
+    title: "Badania medyczne",
+    description:
+      "Badania kliniczne i przedkliniczne nad zastosowaniem kannabinoidów w medycynie.",
+    icon: "activity",
+  },
+  {
+    title: "Badania agronomiczne",
+    description:
+      "Badania nad uprawą, odmianami i zrównoważonymi metodami produkcji konopi.",
+    icon: "sun",
+  },
+  {
+    title: "Technologie przetwórstwa",
+    description:
+      "Badania nad innowacyjnymi metodami ekstrakcji i przetwarzania surowca konopnego.",
+    icon: "settings",
+  },
+  {
+    title: "Analizy rynkowe",
+    description:
+      "Badania trendów rynkowych, preferencji konsumentów i potencjału ekonomicznego sektora.",
+    icon: "bar-chart-2",
+  },
+];
+
+// Recent research papers
+const researchPapers = [
+  {
+    title: "Wpływ CBD na poziom lęku u pacjentów z zaburzeniami lękowymi",
+    authors: "Kowalska A, et al.",
+    institution: "Uniwersytet Medyczny w Warszawie",
+    year: "2024",
+    conclusions:
+      "Badanie wykazało znaczącą redukcję objawów lęku po 8-tygodniowej terapii CBD w dawce 25mg dziennie. Efekt był bardziej widoczny u pacjentów z umiarkowanym nasileniem objawów.",
+  },
+  {
+    title:
+      "Porównanie wydajności uprawy różnych odmian konopi włóknistych w warunkach polskich",
+    authors: "Nowak J, et al.",
+    institution: "Instytut Włókien Naturalnych i Roślin Zielarskich",
+    year: "2024",
+    conclusions:
+      "Odmiany Białobrzeskie i Henola wykazały najlepszą adaptację do warunków klimatycznych Polski północno-wschodniej, z wydajnością biomasy o 15% wyższą niż inne badane odmiany.",
+  },
+  {
+    title:
+      "Bioakumulacja metali ciężkich przez konopie na terenach poprzemysłowych",
+    authors: "Wiśniewski T, et al.",
+    institution: "Politechnika Śląska",
+    year: "2023",
+    conclusions:
+      "Konopie wykazują wysoki potencjał do fitoremediacji terenów skażonych ołowiem i kadmem, z efektywnością akumulacji wyższą niż u większości roślin testowanych w podobnych warunkach.",
+  },
+];
+---
+
+<Base>
+  <section class="py-16">
+    <div class="container">
+      <PageHeader page_data={pageData} />
+
+      <Section
+        section={{
+          title: "Innowacje oparte na dowodach naukowych",
+          content:
+            "W PSEK stawiamy na rzetelną wiedzę naukową jako fundament rozwoju branży konopnej. Współpracujemy z czołowymi ośrodkami badawczymi w Polsce i Europie, wspierając projekty naukowe, które pogłębiają naszą wiedzę o konopiach i ich potencjale w różnych dziedzinach życia.",
+          image: "/images/plantacja-2.JPEG",
+          image_position: "right",
+          buttons: [],
+        }}
+      />
+
+      <!-- Research categories -->
+      <div class="mt-16">
+        <h2 class="mb-8 text-center">Obszary badawcze</h2>
+
+        <div class="row">
+          {
+            researchCategories.map((category) => (
+              <div class="col-12 md:col-6 lg:col-3 mb-8">
+                <div class="bg-surface h-full rounded-lg p-6 shadow-md hover:shadow-lg transition-all">
+                  <div class="flex items-center mb-4">
+                    <span class="text-accent mr-3">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="feather"
+                      >
+                        {category.icon === "activity" && (
+                          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                        )}
+                        {category.icon === "sun" && (
+                          <>
+                            <circle cx="12" cy="12" r="5" />
+                            <line x1="12" y1="1" x2="12" y2="3" />
+                            <line x1="12" y1="21" x2="12" y2="23" />
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                            <line x1="1" y1="12" x2="3" y2="12" />
+                            <line x1="21" y1="12" x2="23" y2="12" />
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                          </>
+                        )}
+                        {category.icon === "settings" && (
+                          <>
+                            <circle cx="12" cy="12" r="3" />
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                          </>
+                        )}
+                        {category.icon === "bar-chart-2" && (
+                          <>
+                            <line x1="18" y1="20" x2="18" y2="10" />
+                            <line x1="12" y1="20" x2="12" y2="4" />
+                            <line x1="6" y1="20" x2="6" y2="14" />
+                          </>
+                        )}
+                      </svg>
+                    </span>
+                    <h3 class="text-lg">{category.title}</h3>
+                  </div>
+                  <p class="text-text-secondary">{category.description}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Recent research papers -->
+      <div class="mt-10">
+        <h2 class="mb-8 text-center">Najnowsze publikacje naukowe</h2>
+
+        <div class="space-y-6">
+          {
+            researchPapers.map((paper, index) => (
+              <div class="bg-surface p-6 rounded-lg shadow-md">
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="text-xl">{paper.title}</h3>
+                  <span class="bg-accent/10 text-accent text-xs px-3 py-1 rounded-full">
+                    {paper.year}
+                  </span>
+                </div>
+                <p class="text-text-secondary mb-2">
+                  <span class="italic">{paper.authors}</span> •{" "}
+                  {paper.institution}
+                </p>
+                <p class="text-text-secondary">
+                  <strong>Wnioski:</strong> {paper.conclusions}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+
+        <div class="text-center mt-8">
+          <a href="/wiedza/strefa-badan/publikacje" class="btn-accent"
+            >Zobacz więcej publikacji</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
