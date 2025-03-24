@@ -1,0 +1,19 @@
+---
+import BusinessArticle from "@/layouts/BusinessArticle.astro";
+import { getCollection } from "astro:content";
+
+// Generate paths for all business articles
+export async function getStaticPaths() {
+  const businessArticles = await getCollection("business");
+
+  return businessArticles.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+// Get the post data from props
+const { post } = Astro.props;
+---
+
+<BusinessArticle post={post} />

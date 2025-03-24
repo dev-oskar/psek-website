@@ -1,0 +1,19 @@
+---
+import MedicalArticle from "@/layouts/MedicalArticle.astro";
+import { getCollection } from "astro:content";
+
+// Generate paths for all medical articles
+export async function getStaticPaths() {
+  const medicalArticles = await getCollection("medical");
+
+  return medicalArticles.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+// Get the post data from props
+const { post } = Astro.props;
+---
+
+<MedicalArticle post={post} />

@@ -1,0 +1,20 @@
+---
+// src/pages/wiedza/dla-pacjenta/[slug].astro
+import PatientArticle from "@/layouts/PatientArticle.astro";
+import { getCollection } from "astro:content";
+
+// Generate paths for all patient articles
+export async function getStaticPaths() {
+  const patientArticles = await getCollection("patient");
+
+  return patientArticles.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+// Get the post data from props
+const { post } = Astro.props;
+---
+
+<PatientArticle post={post} />

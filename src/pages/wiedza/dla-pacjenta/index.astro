@@ -1,131 +1,141 @@
 ---
+// src/pages/wiedza/dla-pacjenta/index.astro
 import PageHeader from "@/components/core/PageHeader.astro";
 import Base from "@/layouts/Base.astro";
-import Section from "@/components/core/Section.astro";
+import { Image } from "astro:assets";
+import { markdownify } from "@/lib/utils/textConverter";
+import { getCollection } from "astro:content";
+
+// Get all patient articles sorted by order (if available)
+const patientArticles = await getCollection("patient");
+const sortedArticles = patientArticles.sort((a, b) => {
+  // First by order if available
+  if (a.data.order !== undefined && b.data.order !== undefined) {
+    return a.data.order - b.data.order;
+  }
+  // If one has order and other doesn't, prioritize the one with order
+  if (a.data.order !== undefined) return -1;
+  if (b.data.order !== undefined) return 1;
+
+  // Otherwise sort by title
+  return a.data.title.localeCompare(b.data.title);
+});
+
+// Featured articles to show at top (if any)
+const featuredArticles = sortedArticles.filter(
+  (article) => article.data.is_featured
+);
+// Regular articles
+const regularArticles = sortedArticles.filter(
+  (article) => !article.data.is_featured
+);
 
 const pageData = {
-  title: "Wiedza dla pacjenta",
-  description:
-    "Rzetelne i przystępne informacje o medycznych zastosowaniach konopi oraz produktach dostępnych legalnie w Polsce.",
-  data: {}, // Add this line to include the 'data' property
+  title: "Strefa Pacjenta",
+  description: "Wiedza i porady dotyczące konopi dla pacjentów",
+  data: {},
 };
-
-// Articles data for display
-const articles = [
-  {
-    title: "Olej CBD - co warto wiedzieć?",
-    excerpt:
-      "Kompendium wiedzy o właściwościach oleju CBD, jego działaniu i sposobach stosowania...",
-    image: "/images/plantacja-1.JPEG",
-    date: "2024-02-15",
-    url: "/wiedza/dla-pacjenta/olej-cbd",
-  },
-  {
-    title: "Kannabinoidy i układ endokannabinoidowy",
-    excerpt:
-      "Jak działa układ endokannabinoidowy i jaką rolę pełnią w nim kannabinoidy roślinne...",
-    image: "/images/plantacja-2.JPEG",
-    date: "2024-01-20",
-    url: "/wiedza/dla-pacjenta/uklad-endokannabinoidowy",
-  },
-  {
-    title: "Różnica między CBD a THC",
-    excerpt:
-      "Poznaj kluczowe różnice między CBD i THC - ich działanie, legalność i zastosowania...",
-    image: "/images/przetworstwo-1.JPEG",
-    date: "2023-12-05",
-    url: "/wiedza/dla-pacjenta/cbd-vs-thc",
-  },
-];
 ---
 
-<Base>
+<Base title={pageData.title} description={pageData.description}>
   <section class="py-16">
     <div class="container">
       <PageHeader page_data={pageData} />
+    </div>
+  </section>
 
-      <Section
-        section={{
-          title: "Konopie w medycynie",
-          content:
-            "Konopie są stosowane w medycynie od tysięcy lat. Obecnie, dzięki badaniom naukowym, wiemy znacznie więcej o ich potencjale terapeutycznym. W Polsce legalnie możemy korzystać z produktów zawierających CBD, które nie wykazuje działania psychoaktywnego, a oferuje szereg korzyści zdrowotnych.",
-          image: "/images/psek-zalozenie.JPEG",
-          image_position: "right",
-          buttons: [],
-        }}
-      />
-
-      <div class="mt-16">
-        <h2 class="mb-8 text-center">Najnowsze artykuły</h2>
-
-        <div class="row">
-          {
-            articles.map((article) => (
-              <div class="col-12 md:col-4 mb-8">
-                <div class="bg-surface rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all">
-                  <div class="h-48 overflow-hidden">
-                    <img
-                      src={article.image}
-                      alt={article.title}
-                      class="w-full h-full object-cover"
+  <!-- Featured Articles Section (if any) -->
+  {
+    featuredArticles.length > 0 && (
+      <section class="section pt-0">
+        <div class="container">
+          <h2 class="mb-8 text-center">Polecane Artykuły</h2>
+          <div class="row">
+            {featuredArticles.map((article) => (
+              <div class="lg:col-4 md:col-6 mb-8">
+                <div class="bg-surface h-full shadow-md hover:shadow-xl transition-shadow duration-300 rounded-lg overflow-hidden">
+                  {article.data.featured_image && (
+                    <Image
+                      src={article.data.featured_image}
+                      alt={article.data.title}
+                      width={400}
+                      height={250}
+                      class="w-full h-48 object-cover"
                     />
-                  </div>
+                  )}
                   <div class="p-6">
-                    <p class="text-text-secondary text-sm mb-2">
-                      {new Date(article.date).toLocaleDateString("pl-PL")}
-                    </p>
-                    <h3 class="mb-3">{article.title}</h3>
-                    <p class="text-text-secondary mb-4">{article.excerpt}</p>
+                    <h3 class="h4 mb-3">
+                      <a
+                        href={`/wiedza/dla-pacjenta/${article.slug}`}
+                        class="block hover:text-primary transition-colors"
+                      >
+                        {article.data.title}
+                      </a>
+                    </h3>
+                    {article.data.description && (
+                      <p class="text-sm text-text-secondary line-clamp-2">
+                        {article.data.description}
+                      </p>
+                    )}
                     <a
-                      href={article.url}
-                      class="text-accent font-medium hover:underline"
+                      href={`/wiedza/dla-pacjenta/${article.slug}`}
+                      class="mt-4 inline-block text-primary hover:underline"
                     >
                       Czytaj więcej →
                     </a>
                   </div>
                 </div>
               </div>
-            ))
-          }
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
+    )
+  }
 
-      <div class="mt-16 bg-surface p-8 rounded-lg shadow-md">
-        <h2 class="mb-5">Najczęściej zadawane pytania</h2>
-
-        <div class="mb-4">
-          <h4 class="mb-2">Czy CBD jest legalne w Polsce?</h4>
-          <p class="text-text-secondary">
-            Tak, produkty z CBD pochodzące z konopi włóknistych, zawierające
-            poniżej 0,2% THC są legalne w Polsce.
-          </p>
-        </div>
-
-        <div class="mb-4">
-          <h4 class="mb-2">Czy CBD uzależnia?</h4>
-          <p class="text-text-secondary">
-            Nie, CBD nie wykazuje właściwości uzależniających ani
-            psychoaktywnych.
-          </p>
-        </div>
-
-        <div class="mb-4">
-          <h4 class="mb-2">Jak dawkować olej CBD?</h4>
-          <p class="text-text-secondary">
-            Zaleca się rozpoczęcie od małych dawek (np. 1-2 krople 2 razy
-            dziennie) i stopniowe zwiększanie w razie potrzeby. Optymalne
-            dawkowanie jest kwestią indywidualną.
-          </p>
-        </div>
-
-        <div>
-          <h4 class="mb-2">Czy CBD wchodzi w interakcje z lekami?</h4>
-          <p class="text-text-secondary">
-            CBD może wchodzić w interakcje z niektórymi lekami. Jeśli
-            przyjmujesz leki na receptę, skonsultuj się z lekarzem przed
-            rozpoczęciem stosowania CBD.
-          </p>
-        </div>
+  <!-- All Articles Section -->
+  <section class="section pt-0">
+    <div class="container">
+      <h2 class="mb-8 text-center">Wszystkie Artykuły</h2>
+      <div class="row">
+        {
+          regularArticles.map((article) => (
+            <div class="lg:col-4 md:col-6 mb-8">
+              <div class="bg-surface h-full shadow-md hover:shadow-xl transition-shadow duration-300 rounded-lg overflow-hidden">
+                {article.data.featured_image && (
+                  <Image
+                    src={article.data.featured_image}
+                    alt={article.data.title}
+                    width={400}
+                    height={250}
+                    class="w-full h-48 object-cover"
+                  />
+                )}
+                <div class="p-6">
+                  <h3 class="h4 mb-3">
+                    <a
+                      href={`/wiedza/dla-pacjenta/${article.slug}`}
+                      class="block hover:text-primary transition-colors"
+                    >
+                      {article.data.title}
+                    </a>
+                  </h3>
+                  {article.data.description && (
+                    <p class="text-sm text-text-secondary line-clamp-2">
+                      {article.data.description}
+                    </p>
+                  )}
+                  <a
+                    href={`/wiedza/dla-pacjenta/${article.slug}`}
+                    class="mt-4 inline-block text-primary hover:underline"
+                  >
+                    Czytaj więcej →
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>

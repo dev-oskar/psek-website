@@ -1,0 +1,73 @@
+---
+import Base from "@/layouts/Base.astro";
+import { Image } from "astro:assets";
+// import { formatDate } from "@/lib/utils/dateFormat";
+import { markdownify } from "@/lib/utils/textConverter";
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+  post: CollectionEntry<"medical">;
+};
+
+const { post } = Astro.props;
+const {
+  title,
+  description,
+  featured_image,
+  meta_title,
+  meta_description,
+  specialty,
+} = post.data;
+const { Content } = await post.render();
+---
+
+<Base
+  title={meta_title || title}
+  description={meta_description || description}
+  image={featured_image}
+>
+  <section class="section">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10">
+          <article class="bg-surface p-6 shadow-lg rounded-lg">
+            {
+              featured_image && (
+                <div class="mb-10">
+                  <Image
+                    src={featured_image}
+                    height={500}
+                    width={1200}
+                    alt={title}
+                    class="w-full rounded"
+                  />
+                </div>
+              )
+            }
+
+            <div class="flex justify-between items-center mb-6">
+              <h1 class="h2" set:html={markdownify(title)} />
+              {
+                specialty && (
+                  <span class="inline-block bg-secondary/20 text-secondary text-sm px-3 py-1 rounded-full">
+                    {specialty}
+                  </span>
+                )
+              }
+            </div>
+
+            {
+              description && (
+                <p class="mb-8 text-lg" set:html={markdownify(description)} />
+              )
+            }
+
+            <div class="content prose max-w-none">
+              <Content />
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

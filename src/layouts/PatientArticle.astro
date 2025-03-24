@@ -1,0 +1,58 @@
+---
+import Base from "@/layouts/Base.astro";
+import { Image } from "astro:assets";
+// import { formatDate } from "@/lib/utils/dateFormat";
+import { markdownify } from "@/lib/utils/textConverter";
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+  post: CollectionEntry<"patient">;
+};
+
+const { post } = Astro.props;
+const { title, description, featured_image, meta_title, meta_description } =
+  post.data;
+const { Content } = await post.render();
+---
+
+<Base
+  title={meta_title || title}
+  description={meta_description || description}
+  image={featured_image}
+>
+  <section class="section">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10">
+          <article class="bg-surface p-6 shadow-lg rounded-lg">
+            {
+              featured_image && (
+                <div class="mb-10">
+                  <Image
+                    src={featured_image}
+                    height={500}
+                    width={1200}
+                    alt={title}
+                    class="w-full rounded"
+                  />
+                </div>
+              )
+            }
+
+            <h1 class="h2 mb-4" set:html={markdownify(title)} />
+
+            {
+              description && (
+                <p class="mb-8 text-lg" set:html={markdownify(description)} />
+              )
+            }
+
+            <div class="content">
+              <Content />
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
