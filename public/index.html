@@ -5,7 +5,9 @@
     <title>Netlify Forms</title>
   </head>
   <body>
-    <!-- This form is used for Netlify form detection during build time -->
+    <!-- These forms are used for Netlify form detection during build time -->
+    
+    <!-- Contact page form -->
     <form name="contact" netlify netlify-honeypot="bot-field" hidden>
       <input type="text" name="name" />
       <input type="email" name="email" />
@@ -16,6 +18,27 @@
         <option value="investment">Mam projekt, który chcę omówić</option>
         <option value="other">Inny powód</option>
       </select>
+      <textarea name="message"></textarea>
+    </form>
+    
+    <!-- Homepage contact form -->
+    <form name="contact-home" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <select name="reason">
+        <option value="hello">Pytanie ogólne</option>
+        <option value="business">Współpraca biznesowa</option>
+        <option value="medical">Zapytanie medyczne</option>
+        <option value="event">Organizacja wydarzenia</option>
+        <option value="other">Inne</option>
+      </select>
+      <textarea name="message"></textarea>
+    </form>
+    
+    <!-- Test form -->
+    <form name="contact-test" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
       <textarea name="message"></textarea>
     </form>
   </body>

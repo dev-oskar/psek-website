@@ -131,9 +131,17 @@ const { banner, sections, features, testimonial } = homepage.data;
         <div class="md:col-6">
           <form
             class="p-6 bg-surface/80 shadow-lg rounded-lg"
-            action="#"
             method="POST"
+            name="contact-home"
+            netlify
+            netlify-honeypot="bot-field"
+            action="/thank-you"
+            enctype="multipart/form-data"
           >
+            <input type="hidden" name="form-name" value="contact-home" />
+            <div style="display:none">
+              <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+            </div>
             <div class="form-group mb-5">
               <label class="form-label text-accent" for="name"
                 >Imię i nazwisko</label
@@ -142,7 +150,9 @@ const { banner, sections, features, testimonial } = homepage.data;
                 class="form-control border border-accent/30 focus:border-accent shadow-sm bg-white/80 dark:bg-surface-contrast/20"
                 type="text"
                 id="name"
+                name="name"
                 placeholder="Twoje imię i nazwisko"
+                required
               />
             </div>
             <div class="form-group mb-5">
@@ -153,7 +163,9 @@ const { banner, sections, features, testimonial } = homepage.data;
                 class="form-control border border-accent/30 focus:border-accent shadow-sm bg-white/80 dark:bg-surface-contrast/20"
                 type="email"
                 id="email"
+                name="email"
                 placeholder="Twój adres email"
+                required
               />
             </div>
             <div class="form-group mb-5">
@@ -181,9 +193,11 @@ const { banner, sections, features, testimonial } = homepage.data;
               <textarea
                 class="form-control h-[150px] border border-accent/30 focus:border-accent shadow-sm bg-white/80 dark:bg-surface-contrast/20"
                 id="message"
+                name="message"
                 placeholder="Twoja wiadomość..."
                 cols="30"
-                rows="10"></textarea>
+                rows="10"
+                required></textarea>
             </div>
             <button
               class="btn-primary block w-full bg-accent hover:bg-accent/80 text-white font-bold py-3 px-6 rounded-lg transition-colors shadow-md"

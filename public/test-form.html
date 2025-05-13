@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Netlify Form Test</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        max-width: 500px;
+      }
+      label {
+        font-weight: bold;
+      }
+      input, select, textarea {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      button {
+        background-color: #0070f3;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Netlify Form Test</h1>
+    <p>This is a test form to verify Netlify form functionality. It uses the simplest possible implementation to test form submissions.</p>
+
+    <form name="contact-test" netlify netlify-honeypot="bot-field" action="/thank-you">
+      <input type="hidden" name="form-name" value="contact-test" />
+      
+      <div class="hidden">
+        <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+      </div>
+      
+      <div>
+        <label for="name">Name:</label>
+        <input id="name" type="text" name="name" required />
+      </div>
+      
+      <div>
+        <label for="email">Email:</label>
+        <input id="email" type="email" name="email" required />
+      </div>
+      
+      <div>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      
+      <button type="submit">Submit Test Form</button>
+    </form>
+    
+    <div style="margin-top: 30px">
+      <h2>Debugging Information</h2>
+      <p>If your form isn't working, check the following:</p>
+      <ul>
+        <li>Ensure Form Detection is enabled in your Netlify dashboard</li>
+        <li>Verify that the form has the 'netlify' attribute</li>
+        <li>Ensure all field names match between your visible form and the hidden form in public/index.html</li>
+        <li>Check if there are any JavaScript handlers intercepting the form submission</li>
+      </ul>
+    </div>
+  </body>
+</html>
