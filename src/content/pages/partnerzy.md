@@ -77,7 +77,7 @@ Czasopismo naukowe poświęcone uprawie i przetwórstwu konopi. Regularnie publi
 
 Jeśli Twoja organizacja, instytucja naukowa lub firma jest zainteresowana współpracą z Polskim Stowarzyszeniem Edukacji Konopnej, zapraszamy do kontaktu:
 
-- Email: partnerzy@psek.pl
+- Email: psek.biuro@gmail.com
 - Telefon: +48 123 456 789
 
 Oferujemy różne formy współpracy, w tym:

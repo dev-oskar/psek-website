@@ -21,7 +21,7 @@ Polskie Stowarzyszenie Edukacji Konopnej
 ul. Przykładowa 123  
 00-000 Warszawa  
 NIP: 000-000-00-00  
-e-mail: kontakt@psek.pl
+e-mail: psek.biuro@gmail.com
 
 ## 3. Cele i podstawy przetwarzania danych
 
@@ -77,6 +77,7 @@ Przysługują Państwu następujące prawa:
 Nasza strona internetowa wykorzystuje pliki cookies (ciasteczka). Są to niewielkie pliki tekstowe, które są wysyłane do urządzenia użytkownika podczas przeglądania strony internetowej i przechowywane na jego urządzeniu.
 
 Wykorzystujemy pliki cookies w celu:
+
 - Dostosowania zawartości strony do preferencji użytkownika
 - Optymalizacji korzystania ze strony internetowej
 - Tworzenia statystyk oglądalności strony
@@ -90,6 +91,6 @@ Stowarzyszenie zastrzega sobie prawo do wprowadzania zmian w niniejszej Polityce
 
 ## 10. Kontakt
 
-We wszystkich sprawach dotyczących przetwarzania danych osobowych mogą Państwo kontaktować się z nami pod adresem e-mail: kontakt@psek.pl lub pisemnie na adres siedziby Stowarzyszenia.
+We wszystkich sprawach dotyczących przetwarzania danych osobowych mogą Państwo kontaktować się z nami pod adresem e-mail: psek.biuro@gmail.com lub pisemnie na adres siedziby Stowarzyszenia.
 
 Data ostatniej aktualizacji: 13.05.2023

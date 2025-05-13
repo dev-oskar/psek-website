@@ -79,7 +79,11 @@ const { pathname } = Astro.url;
                     }`}
                   >
                     {menu.name}
-                    <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20" aria-hidden="true">
+                    <svg
+                      class="h-4 w-4 fill-current"
+                      viewBox="0 0 20 20"
+                      aria-hidden="true"
+                    >
                       <title>Expand dropdown menu</title>
                       <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                     </svg>
@@ -89,6 +93,7 @@ const { pathname } = Astro.url;
                       <li class="nav-dropdown-item">
                         <a
                           href={child.url}
+                          aria-label="submenu for {child.name}"
                           class={`nav-dropdown-link block ${
                             (pathname === `${child.url}/` ||
                               pathname === child.url) &&
@@ -118,7 +123,7 @@ const { pathname } = Astro.url;
           ))
         }
       </ul>
-      
+
       <div class="items-center">
         <ThemeToggle />
       </div>
@@ -133,7 +138,7 @@ const { pathname } = Astro.url;
       function toggleDropdown(e) {
         e.stopPropagation(); // Prevent unnecessary events
         const isOpen = dropdown.classList.toggle("open");
-        
+
         // Update aria-expanded attribute
         const toggleButton = dropdown.querySelector("[role='button']");
         if (toggleButton) {

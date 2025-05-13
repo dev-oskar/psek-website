@@ -42,7 +42,7 @@ const TestimonialSlider = ({ list }) => {
               <div className="review-author-avatar bg-gradient">
                 <img 
                   src={item.avatar} 
-                  alt={`${item.author}'s profile`} 
+                  alt={item.author} 
                 />
               </div>
               <h4 className="mb-2">{item.author}</h4>

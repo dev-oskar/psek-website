@@ -25,9 +25,10 @@ const text = logo_text;
       <Image
         class="h-9 w-auto"
         src={src || logo}
-        alt={title}
+        alt=""
         width={Number(logo_width)}
         height={Number(logo_height)}
+        loading="eager"
       />
     ) : (
       <svg

@@ -25,7 +25,7 @@ Członkiem wspierającym może zostać osoba fizyczna lub prawna, która:
 
 ## Procedura przyjęcia
 
-1. **Wstępny kontakt** - Skontaktuj się z nami przez formularz na stronie lub bezpośrednio przez e-mail: czlonkostwo@psek.pl
+1. **Wstępny kontakt** - Skontaktuj się z nami przez formularz na stronie lub bezpośrednio przez e-mail: psek.biuro@gmail.com
 2. **Rozmowa wstępna** - Organizujemy spotkanie online lub stacjonarne, podczas którego przedstawiamy szczegółowo działalność Stowarzyszenia
 3. **Uzyskanie rekomendacji** - Dla członków zwyczajnych wymagane są rekomendacje od dwóch aktualnych członków Stowarzyszenia
 4. **Złożenie deklaracji** - Wypełnij formularze dostępne na naszej stronie lub przesłane drogą elektroniczną
@@ -74,7 +74,7 @@ Dołączając do PSEK, zyskujesz:
 
 ## Formularz zgłoszeniowy
 
-Formularz zgłoszeniowy dostępny jest do pobrania [tutaj](#) lub można go otrzymać, pisząc na adres: czlonkostwo@psek.pl.
+Formularz zgłoszeniowy dostępny jest do pobrania [tutaj](#) lub można go otrzymać, pisząc na adres: psek.biuro@gmail.com.
 
 Wypełniony formularz wraz z rekomendacjami należy przesłać na adres:
 
@@ -82,13 +82,13 @@ Polskie Stowarzyszenie Edukacji Konopnej
 ul. Przykładowa 123  
 00-000 Warszawa  
 
-lub drogą elektroniczną na adres: czlonkostwo@psek.pl
+lub drogą elektroniczną na adres: psek.biuro@gmail.com
 
 ## Kontakt w sprawie członkostwa
 
 W przypadku pytań dotyczących procedury przyjęcia lub członkostwa w Stowarzyszeniu, prosimy o kontakt:
 
-- E-mail: czlonkostwo@psek.pl
+- E-mail: psek.biuro@gmail.com
 - Telefon: +48 123 456 789 (w godzinach 10:00-16:00, od poniedziałku do piątku)
 
 Zapraszamy do dołączenia do naszego Stowarzyszenia i wspólnego promowania rzetelnej wiedzy o konopiach!
