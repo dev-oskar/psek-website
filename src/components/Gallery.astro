@@ -1,5 +1,5 @@
 ---
-
+import { Image } from "astro:assets";
 import { markdownify } from "@/lib/utils/textConverter";
 /**
  *
@@ -11,12 +11,13 @@ interface Props {
   gallery: {
     title: string;
     images: string[];
+    image_alts?: string[]; // Optional array of alt texts for images
   };
   cols?: number
 }
 const { gallery, cols = 2 }: Props = Astro.props;
 const grid_cols = `col-${12 / cols}`;
-const { title, images } = gallery;
+const { title, images, image_alts = [] } = gallery;
 ---
 
 <section class="section">
@@ -30,10 +31,16 @@ const { title, images } = gallery;
     <div class="relative">
       <div class="row" id="photo-gallery">
         {
-          images.map((image: any) => (
+          images.map((image: any, index: number) => (
             <div class={`picture-item ${grid_cols} mt-12`}>
-              {" "}
-              <img class="w-full" src={image} alt="" />
+              <Image 
+                class="w-full" 
+                src={image} 
+                alt={image_alts[index] || `Gallery item ${index + 1}`} 
+                width={800}
+                height={600}
+                quality={80}
+              />
             </div>
           ))
         }

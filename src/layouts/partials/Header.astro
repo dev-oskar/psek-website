@@ -65,6 +65,10 @@ const { pathname } = Astro.url;
               {menu.hasChildren ? (
                 <li class="nav-item nav-dropdown group relative cursor-pointer dropdown-button">
                   <span
+                    role="button"
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                    tabindex="0"
                     class={`nav-link inline-flex items-center ${
                       menu.children?.map(({ url }) => url).includes(pathname) ||
                       menu.children
@@ -75,7 +79,8 @@ const { pathname } = Astro.url;
                     }`}
                   >
                     {menu.name}
-                    <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20">
+                    <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20" aria-hidden="true">
+                      <title>Expand dropdown menu</title>
                       <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                     </svg>
                   </span>
@@ -126,13 +131,23 @@ const { pathname } = Astro.url;
     document.querySelectorAll(".dropdown-button").forEach((button) => {
       const dropdown = button.closest(".nav-dropdown");
       function toggleDropdown(e) {
-        e.stopPropagation(); // Evitar eventos innecesarios
-        dropdown.classList.toggle("open");
+        e.stopPropagation(); // Prevent unnecessary events
+        const isOpen = dropdown.classList.toggle("open");
+        
+        // Update aria-expanded attribute
+        const toggleButton = dropdown.querySelector("[role='button']");
+        if (toggleButton) {
+          toggleButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        }
 
-        // Cierra otros dropdowns abiertos
+        // Close other open dropdowns
         document.querySelectorAll(".nav-dropdown").forEach((otherDropdown) => {
           if (otherDropdown !== dropdown) {
             otherDropdown.classList.remove("open");
+            const otherButton = otherDropdown.querySelector("[role='button']");
+            if (otherButton) {
+              otherButton.setAttribute("aria-expanded", "false");
+            }
           }
         });
       }

@@ -187,9 +187,11 @@ const allPapers = [
               <div class="bg-surface h-full shadow-md hover:shadow-xl transition-all duration-300 rounded-lg overflow-hidden">
                 {paper.featured_image && (
                   <div class="h-48 overflow-hidden">
-                    <img
+                    <Image
                       src={paper.featured_image}
                       alt={paper.title}
+                      width={800}
+                      height={400}
                       class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
