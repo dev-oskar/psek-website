@@ -1,33 +1,34 @@
 ---
-# src/content/patient/podstawy-konopi-dla-pacjentow.md
-title: "Podstawy konopi dla pacjentów"
-description: "Przewodnik wprowadzający do terapeutycznego zastosowania konopi"
-meta_title: "Konopie lecznicze - podstawowe informacje dla pacjentów | PSEK"
-meta_description: "Dowiedz się wszystkiego, co powinieneś wiedzieć o konopiach leczniczych - od regulacji prawnych po zastosowania medyczne"
-featured_image: "/images/plantacja-1.JPEG"
+title: Podstawy konopi dla pacjentów
+description: Przewodnik wprowadzający do terapeutycznego zastosowania konopi
+meta_title: Konopie lecznicze - podstawowe informacje dla pacjentów | PSEK
+meta_description: >-
+  Dowiedz się wszystkiego, co powinieneś wiedzieć o konopiach leczniczych - od
+  regulacji prawnych po zastosowania medyczne
+featured_image: /images/pexels-kindelmedia-7667911.jpg
 is_featured: true
 order: 1
-category: "Podstawy"
+category: Podstawy
 ---
 
 ## Wprowadzenie do konopi medycznych
 
-Konopie lecznicze (medyczne) to preparaty pochodzące z rośliny _Cannabis sativa L._, które zawierają związki o potencjale terapeutycznym, zwłaszcza kannabidiol (CBD) i tetrahydrokannabinol (THC). W przeciwieństwie do konopi rekreacyjnych, konopie medyczne są uprawiane i przetwarzane z myślą o zastosowaniach leczniczych.
+Konopie lecznicze (medyczne) to preparaty pochodzące z rośliny *Cannabis sativa L.*, które zawierają związki o potencjale terapeutycznym, zwłaszcza kannabidiol (CBD) i tetrahydrokannabinol (THC). W przeciwieństwie do konopi rekreacyjnych, konopie medyczne są uprawiane i przetwarzane z myślą o zastosowaniach leczniczych.
 
 ### Historia leczniczego zastosowania konopi
 
 Konopie były używane w celach medycznych przez tysiące lat w różnych kulturach:
 
-- Pierwsze udokumentowane zastosowanie medyczne konopi pochodzi z Chin z około 2800 r. p.n.e.
-- W starożytnych Indiach konopie były używane jako środek przeciwbólowy i przeciwzapalny
-- W Europie konopie medyczne były szeroko stosowane do końca XIX wieku
+* Pierwsze udokumentowane zastosowanie medyczne konopi pochodzi z Chin z około 2800 r. p.n.e.
+* W starożytnych Indiach konopie były używane jako środek przeciwbólowy i przeciwzapalny
+* W Europie konopie medyczne były szeroko stosowane do końca XIX wieku
 
 ### Jak działają konopie medyczne?
 
 Konopie działają głównie poprzez system endokannabinoidowy organizmu - sieć receptorów występujących w całym ciele, która pomaga regulować ból, nastrój, apetyt, pamięć i inne funkcje. Główne receptory to:
 
-- **CB1** - występują głównie w mózgu i układzie nerwowym
-- **CB2** - występują głównie w układzie odpornościowym
+* **CB1** - występują głównie w mózgu i układzie nerwowym
+* **CB2** - występują głównie w układzie odpornościowym
 
 ## Składniki aktywne konopi
 
@@ -35,15 +36,15 @@ Konopie zawierają ponad 100 różnych kannabinoidów, ale najważniejsze to:
 
 ### CBD (Kannabidiol)
 
-- Nie wywołuje efektów psychoaktywnych
-- Może mieć działanie przeciwzapalne, przeciwlękowe i przeciwdrgawkowe
-- Jest legalny w Polsce, gdy pochodzi z konopi włóknistych
+* Nie wywołuje efektów psychoaktywnych
+* Może mieć działanie przeciwzapalne, przeciwlękowe i przeciwdrgawkowe
+* Jest legalny w Polsce, gdy pochodzi z konopi włóknistych
 
 ### THC (Tetrahydrokannabinol)
 
-- Wywołuje efekty psychoaktywne ("haj")
-- Ma działanie przeciwbólowe, przeciwwymiotne i pobudzające apetyt
-- W Polsce produkty z THC są dostępne tylko na receptę
+* Wywołuje efekty psychoaktywne ("haj")
+* Ma działanie przeciwbólowe, przeciwwymiotne i pobudzające apetyt
+* W Polsce produkty z THC są dostępne tylko na receptę
 
 ## Zastosowania medyczne konopi
 
@@ -61,20 +62,20 @@ Konopie medyczne mogą być stosowane w leczeniu lub łagodzeniu objawów wielu 
 
 Konopie medyczne mogą być dostępne w różnych formach:
 
-- **Susz** - do waporyzacji (nie zaleca się palenia)
-- **Oleje** - do stosowania podjęzykowego lub doustnego
-- **Kapsułki** - zawierające olej konopny
-- **Kremy i maści** - do stosowania miejscowego
-- **Tinktury** - ekstrakty alkoholowe
+* **Susz** - do waporyzacji (nie zaleca się palenia)
+* **Oleje** - do stosowania podjęzykowego lub doustnego
+* **Kapsułki** - zawierające olej konopny
+* **Kremy i maści** - do stosowania miejscowego
+* **Tinktury** - ekstrakty alkoholowe
 
 ## Status prawny w Polsce
 
 W Polsce medyczna marihuana jest legalna od 2017 roku, ale podlega ścisłym regulacjom:
 
-- Konopie medyczne z THC są dostępne tylko na receptę
-- Lekarz każdej specjalizacji może przepisać medyczną marihuanę
-- Pacjent musi się udać do apteki, która przygotowuje leki recepturowe
-- Produkty z CBD z konopi włóknistych (zawierające poniżej 0,3% THC) są legalne i dostępne bez recepty
+* Konopie medyczne z THC są dostępne tylko na receptę
+* Lekarz każdej specjalizacji może przepisać medyczną marihuanę
+* Pacjent musi się udać do apteki, która przygotowuje leki recepturowe
+* Produkty z CBD z konopi włóknistych (zawierające poniżej 0,3% THC) są legalne i dostępne bez recepty
 
 ## Jak rozpocząć leczenie konopiami medycznymi?
 
@@ -90,13 +91,13 @@ Jeśli rozważasz leczenie konopiami medycznymi:
 
 Konopie medyczne, jak każdy lek, mogą powodować efekty uboczne:
 
-- Suchość w ustach
-- Zawroty głowy
-- Senność lub pobudzenie
-- Zmiana apetytu
-- Zaburzenia koordynacji
-- Czasowe problemy z pamięcią krótkotrwałą
-- Przyspieszone bicie serca
+* Suchość w ustach
+* Zawroty głowy
+* Senność lub pobudzenie
+* Zmiana apetytu
+* Zaburzenia koordynacji
+* Czasowe problemy z pamięcią krótkotrwałą
+* Przyspieszone bicie serca
 
 ## Podsumowanie
 
@@ -106,6 +107,6 @@ Konopie medyczne mogą stanowić wartościową opcję terapeutyczną dla wielu p
 
 Więcej informacji na temat konopi medycznych możesz znaleźć:
 
-- W innych artykułach na naszej stronie
-- Konsultując się z lekarzem
-- Kontaktując się z Polskim Stowarzyszeniem Edukacji Konopnej
+* W innych artykułach na naszej stronie
+* Konsultując się z lekarzem
+* Kontaktując się z Polskim Stowarzyszeniem Edukacji Konopnej

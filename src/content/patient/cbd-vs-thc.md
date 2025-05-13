@@ -1,13 +1,14 @@
 ---
-# src/content/patient/cbd-vs-thc.md
-title: "CBD vs THC - różnice i zastosowania"
-description: "Porównanie dwóch głównych kannabinoidów - jak działają i kiedy stosować"
-meta_title: "CBD i THC - główne różnice i zastosowania medyczne | PSEK"
-meta_description: "Poznaj różnice między CBD i THC, ich właściwości lecznicze, skutki uboczne oraz zastosowania medyczne"
-featured_image: "/images/plantacja-2.JPEG"
+title: CBD vs THC - różnice i zastosowania
+description: Porównanie dwóch głównych kannabinoidów - jak działają i kiedy stosować
+meta_title: CBD i THC - główne różnice i zastosowania medyczne | PSEK
+meta_description: >-
+  Poznaj różnice między CBD i THC, ich właściwości lecznicze, skutki uboczne
+  oraz zastosowania medyczne
+featured_image: /images/david-gabric-KdC5agsz6ik-unsplash.jpg
 is_featured: false
 order: 2
-category: "Edukacja"
+category: Edukacja
 ---
 
 # CBD vs THC - Porównanie kannabinoidów
@@ -29,26 +30,26 @@ Kannabidiol (CBD) to związek, który nie wywołuje efektu odurzenia i jest pows
 
 ### Właściwości CBD:
 
-- **Przeciwzapalne** - może zmniejszać stan zapalny w organizmie
-- **Przeciwlękowe** - może redukować objawy lęku i stresu
-- **Przeciwdrgawkowe** - pomaga w kontroli napadów padaczkowych
-- **Przeciwbólowe** - może łagodzić niektóre rodzaje bólu
-- **Neuroprotekcyjne** - może chronić komórki nerwowe
+* **Przeciwzapalne** - może zmniejszać stan zapalny w organizmie
+* **Przeciwlękowe** - może redukować objawy lęku i stresu
+* **Przeciwdrgawkowe** - pomaga w kontroli napadów padaczkowych
+* **Przeciwbólowe** - może łagodzić niektóre rodzaje bólu
+* **Neuroprotekcyjne** - może chronić komórki nerwowe
 
 ### Medyczne zastosowania CBD:
 
-- Padaczka lekooporna (zatwierdzone przez FDA jako Epidiolex)
-- Stany lękowe i zaburzenia snu
-- Przewlekły ból i stany zapalne
-- Choroby neurodegeneracyjne
-- Łagodzenie objawów chorób autoimmunologicznych
+* Padaczka lekooporna (zatwierdzone przez FDA jako Epidiolex)
+* Stany lękowe i zaburzenia snu
+* Przewlekły ból i stany zapalne
+* Choroby neurodegeneracyjne
+* Łagodzenie objawów chorób autoimmunologicznych
 
 ### Skutki uboczne CBD:
 
-- Zmęczenie
-- Biegunka
-- Zmiany apetytu
-- Interakcje z innymi lekami (wpływ na enzymy wątrobowe)
+* Zmęczenie
+* Biegunka
+* Zmiany apetytu
+* Interakcje z innymi lekami (wpływ na enzymy wątrobowe)
 
 ## THC - właściwości i zastosowania
 
@@ -56,28 +57,28 @@ Tetrahydrokannabinol (THC) to główny psychoaktywny składnik konopi, odpowiedz
 
 ### Właściwości THC:
 
-- **Psychoaktywne** - wpływa na percepcję, nastrój i świadomość
-- **Przeciwbólowe** - skuteczne w łagodzeniu bólu
-- **Przeciwwymiotne** - zapobiega nudnościom i wymiotom
-- **Zwiększające apetyt** - stymuluje apetyt
-- **Rozluźniające mięśnie** - może zmniejszać napięcie mięśniowe
+* **Psychoaktywne** - wpływa na percepcję, nastrój i świadomość
+* **Przeciwbólowe** - skuteczne w łagodzeniu bólu
+* **Przeciwwymiotne** - zapobiega nudnościom i wymiotom
+* **Zwiększające apetyt** - stymuluje apetyt
+* **Rozluźniające mięśnie** - może zmniejszać napięcie mięśniowe
 
 ### Medyczne zastosowania THC:
 
-- Łagodzenie nudności i wymiotów, zwłaszcza po chemioterapii
-- Stymulacja apetytu u pacjentów z HIV/AIDS lub anoreksją
-- Leczenie przewlekłego bólu
-- Łagodzenie spastyczności w stwardnieniu rozsianym
-- Leczenie jaskry (obniżanie ciśnienia wewnątrzgałkowego)
+* Łagodzenie nudności i wymiotów, zwłaszcza po chemioterapii
+* Stymulacja apetytu u pacjentów z HIV/AIDS lub anoreksją
+* Leczenie przewlekłego bólu
+* Łagodzenie spastyczności w stwardnieniu rozsianym
+* Leczenie jaskry (obniżanie ciśnienia wewnątrzgałkowego)
 
 ### Skutki uboczne THC:
 
-- Uczucie odurzenia
-- Zaburzenia pamięci krótkotrwałej
-- Niepokój i paranoja (u niektórych osób)
-- Przyspieszone bicie serca
-- Suche usta i oczy
-- Zaburzenia koordynacji
+* Uczucie odurzenia
+* Zaburzenia pamięci krótkotrwałej
+* Niepokój i paranoja (u niektórych osób)
+* Przyspieszone bicie serca
+* Suche usta i oczy
+* Zaburzenia koordynacji
 
 ## Działanie synergiczne - efekt entourage
 
@@ -89,16 +90,16 @@ Efekt entourage to zjawisko, w którym pełnospektralne ekstrakty konopne (zawie
 
 W zależności od schorzenia, różne proporcje CBD do THC mogą być bardziej korzystne:
 
-- **Wysoki poziom CBD, niski THC (np. 20:1)** - dla osób wrażliwych na THC, dzieci, pacjentów z zaburzeniami lękowymi
-- **Zrównoważony stosunek (np. 1:1)** - dla bólu przewlekłego, gdzie pożądany jest efekt przeciwbólowy THC z łagodzącym działaniem CBD
-- **Wysoki poziom THC, niski CBD (np. 1:20)** - dla stymulacji apetytu, silnego działania przeciwbólowego, przeciwwymiotnego
+* **Wysoki poziom CBD, niski THC (np. 20:1)** - dla osób wrażliwych na THC, dzieci, pacjentów z zaburzeniami lękowymi
+* **Zrównoważony stosunek (np. 1:1)** - dla bólu przewlekłego, gdzie pożądany jest efekt przeciwbólowy THC z łagodzącym działaniem CBD
+* **Wysoki poziom THC, niski CBD (np. 1:20)** - dla stymulacji apetytu, silnego działania przeciwbólowego, przeciwwymiotnego
 
 ## Aspekty prawne w Polsce
 
-- **CBD** z konopi włóknistych (poniżej 0,3% THC) jest legalny w Polsce i dostępny bez recepty
-- **THC** jest substancją kontrolowaną, dostępną wyłącznie na receptę
-- Preparaty z THC muszą być przepisane przez lekarza (dowolnej specjalizacji)
-- Recepty na THC są realizowane w aptekach przygotowujących leki recepturowe
+* **CBD** z konopi włóknistych (poniżej 0,3% THC) jest legalny w Polsce i dostępny bez recepty
+* **THC** jest substancją kontrolowaną, dostępną wyłącznie na receptę
+* Preparaty z THC muszą być przepisane przez lekarza (dowolnej specjalizacji)
+* Recepty na THC są realizowane w aptekach przygotowujących leki recepturowe
 
 ## Wybór odpowiedniego kannabinoidu
 
@@ -120,8 +121,8 @@ Najlepsze rezultaty często osiąga się poprzez spersonalizowane podejście, do
 
 Pamiętaj, że przed rozpoczęciem jakiejkolwiek terapii kannabinoidami, powinieneś skonsultować się z lekarzem, szczególnie jeśli:
 
-- Przyjmujesz inne leki
-- Masz historię zaburzeń psychicznych
-- Cierpisz na choroby serca
-- Jesteś w ciąży lub karmisz piersią
-- Masz mniej niż 25 lat (rozwój mózgu może być wrażliwy na THC)
+* Przyjmujesz inne leki
+* Masz historię zaburzeń psychicznych
+* Cierpisz na choroby serca
+* Jesteś w ciąży lub karmisz piersią
+* Masz mniej niż 25 lat (rozwój mózgu może być wrażliwy na THC)

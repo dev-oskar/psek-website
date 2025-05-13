@@ -16,19 +16,19 @@ banner:
 sections:
   - title: Szukasz rzetelnej wiedzy na temat konopi?
     content: "Dołącz do naszej <b class='text-accent'>społeczności ekspertów i entuzjastów</b>, gdzie dzielimy się sprawdzoną wiedzą i najnowszymi badaniami naukowymi w dziedzinie konopi. Nasze materiały edukacyjne są tworzone we współpracy z czołowymi specjalistami z zakresu <b class='text-accent'>botaniki, medycyny i technologii upraw.</b>"
-    image: /images/plantacja-1.JPEG
+    image: /images/pexels-kindelmedia-7667911.jpg
 
   - title: Organizujemy profesjonalne szkolenia i warsztaty edukacyjne
     content: Nasi wykwalifikowani specjaliści przekazują praktyczną <b class='text-accent'>wiedzę o uprawie, przetwórstwie i zastosowaniu</b> konopi w różnych gałęziach przemysłu. Każdy uczestnik otrzymuje certyfikat potwierdzający zdobyte kompetencje oraz dostęp do zamkniętej grupy mentorskiej.
-    image: /images/plantacja-2.JPEG
+    image: /images/pexels-kindelmedia-7667715.jpg
 
   - title: Współpracujemy z naukowcami i instytucjami badawczymi w całej Polsce
     content: Aktywnie uczestniczymy w <b class='text-accent'>rozwoju branży konopnej</b> poprzez inicjowanie projektów badawczych i wspieranie innowacji. Regularnie publikujemy raporty i analizy rynkowe, które pomagają w podejmowaniu świadomych decyzji biznesowych.
-    image: /images/przetworstwo-1.JPEG
+    image: /images/pexels-dadgrass-9616325.jpg
 
   - title: Budujemy mosty między środowiskiem naukowym a biznesem
     content: "Pomagamy przedsiębiorcom w zrozumieniu regulacji prawnych i <b class='text-accent'>wspieramy rozwój odpowiedzialnego rynku produktów konopnych.</b> Organizujemy networking i wydarzenia branżowe, które łączą naukowców, przedsiębiorców oraz inwestorów zainteresowanych sektorem konopnym."
-    image: /images/psek-zalozenie.JPEG
+    image: /images/matteo-paganelli-MqISkm2iLGc-unsplash.jpg
 
 ##key features
 features:
