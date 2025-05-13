@@ -1,34 +1,31 @@
 ---
 import PageHeader from "@/components/core/PageHeader.astro";
-import config from "@/config/config.json";
 import Base from "@/layouts/Base.astro";
 import { getEntry } from "astro:content";
 
 const entry = await getEntry("contact", "index");
-const { contact_form_action } = config.params;
 ---
 
-<Base
-  entry_keys={["contact", "index"]}
->
-  <section class=" pb-6 pt-16">
+<Base entry_keys={["contact", "index"]}>
+  <section class="pb-6 pt-16">
     <div class="container"><PageHeader page_data={entry.data} /></div>
   </section>
 
   <section class="section pt-0">
     <div class="container">
       <div class="row">
-
         <div class="md:col-12 md:order-1 grid place-content-center">
           <form
             class="lg:max-w-[484px]"
-            action={contact_form_action}
             method="POST"
             name="contact"
             data-netlify="true"
             netlify-honeypot="bot-field"
           >
             <input type="hidden" name="form-name" value="contact" />
+            <div style="display:none">
+              <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+            </div>
             <div class="form-group mb-5">
               <label class="form-label" for="name">Imię i nazwisko</label>
               <input
@@ -56,9 +53,15 @@ const { contact_form_action } = config.params;
               <select name="reason" id="reason" class="form-select" required>
                 <option value="">Wybierz powód kontaktu</option>
                 <option value="hello">Chcę się przywitać</option>
-                <option value="work-with-you">Chcę współpracować ze stowarzyszeniem</option>
-                <option value="work-for-me">Chcę nawiązać współpracę biznesową</option>
-                <option value="investment">Mam projekt, który chcę omówić</option>
+                <option value="work-with-you"
+                  >Chcę współpracować ze stowarzyszeniem</option
+                >
+                <option value="work-for-me"
+                  >Chcę nawiązać współpracę biznesową</option
+                >
+                <option value="investment"
+                  >Mam projekt, który chcę omówić</option
+                >
                 <option value="other">Inny powód</option>
               </select>
             </div>
