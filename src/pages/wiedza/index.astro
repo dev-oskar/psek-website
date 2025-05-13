@@ -42,33 +42,8 @@ const knowledgeSections = [
   }
 ];
 
-// Featured articles
-const featuredArticles = [
-  {
-    title: "Olej CBD - co warto wiedzieć?",
-    excerpt: "Kompendium wiedzy o właściwościach oleju CBD, jego działaniu i sposobach stosowania...",
-    category: "Dla pacjenta",
-    date: "2024-02-15",
-    image: "/images/pexels-kindelmedia-7667911.jpg",
-    url: "/wiedza/dla-pacjenta/olej-cbd"
-  },
-  {
-    title: "Kannabinoidy i układ endokannabinoidowy",
-    excerpt: "Jak działa układ endokannabinoidowy i jaką rolę pełnią w nim kannabinoidy roślinne...",
-    category: "Dla lekarzy",
-    date: "2024-01-20",
-    image: "/images/greenforce-staffing-bYZn_C-RswQ-unsplash.jpg",
-    url: "/wiedza/dla-lekarzy/uklad-endokannabinoidowy"
-  },
-  {
-    title: "Możliwości biznesowe w sektorze konopnym",
-    excerpt: "Analiza potencjału ekonomicznego i kierunków rozwoju branży konopnej w Polsce...",
-    category: "Dla biznesu",
-    date: "2023-12-10",
-    image: "/images/david-gabric-KdC5agsz6ik-unsplash.jpg",
-    url: "/wiedza/dla-biznesu/mozliwosci-biznesowe"
-  }
-];
+// No featured articles as requested
+const featuredArticles = [];
 ---
 
 <Base>
@@ -88,13 +63,13 @@ const featuredArticles = [
       
       <!-- Knowledge sections -->
       <div class="mt-16">
-        <h2 class="mb-10 text-center">Eksploruj obszary wiedzy</h2>
+        <h2 class="mb-8 text-center relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:h-1 after:w-16 after:bg-accent/60 after:rounded-full">Eksploruj obszary wiedzy</h2>
         
         <div class="row">
           {knowledgeSections.map((section) => (
             <div class="col-12 md:col-6 mb-8">
               <a href={section.url} class="block group">
-                <div class="bg-surface rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all h-full">
+                <div class="bg-surface h-full shadow-md hover:shadow-xl transition-all duration-300 rounded-lg overflow-hidden">
                   <div class="h-48 overflow-hidden">
                     <img 
                       src={section.image} 
@@ -131,49 +106,15 @@ const featuredArticles = [
         </div>
       </div>
       
-      <!-- Featured articles -->
-      <div class="mt-16">
-        <h2 class="mb-10 text-center">Polecane artykuły</h2>
-        
-        <div class="row">
-          {featuredArticles.map((article, index) => (
-            <div class="col-12 md:col-4 mb-8">
-              <a href={article.url} class="block group">
-                <div class="bg-surface rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all h-full">
-                  <div class="h-48 overflow-hidden">
-                    <img 
-                      src={article.image} 
-                      alt={article.title} 
-                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                    />
-                  </div>
-                  <div class="p-6">
-                    <div class="flex justify-between items-center mb-3">
-                      <span class="bg-accent/10 text-accent text-xs px-3 py-1 rounded-full">{article.category}</span>
-                      <span class="text-text-secondary text-sm">{new Date(article.date).toLocaleDateString('pl-PL')}</span>
-                    </div>
-                    <h3 class="mb-3 group-hover:text-accent transition-colors">{article.title}</h3>
-                    <p class="text-text-secondary mb-4">{article.excerpt}</p>
-                    <span class="text-accent font-medium group-hover:underline">Czytaj więcej →</span>
-                  </div>
-                </div>
-              </a>
-            </div>
-          ))}
-        </div>
-        
-        <div class="text-center mt-6">
-          <a href="/wiedza/wszystkie-artykuly" class="btn-accent">Zobacz wszystkie artykuły</a>
-        </div>
-      </div>
+      <!-- Featured articles section removed as requested -->
       
       <!-- Resources -->
       <div class="mt-16">
-        <h2 class="mb-10 text-center">Materiały edukacyjne</h2>
+        <h2 class="mb-8 text-center relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:h-1 after:w-16 after:bg-accent/60 after:rounded-full">Materiały edukacyjne</h2>
         
         <div class="row">
           <div class="col-12 md:col-6 lg:col-3 mb-8">
-            <div class="bg-surface rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all text-center p-6 h-full">
+            <div class="bg-surface rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 text-center p-6 h-full">
               <div class="flex justify-center mb-4">
                 <span class="text-accent">
                   <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -189,7 +130,7 @@ const featuredArticles = [
           </div>
           
           <div class="col-12 md:col-6 lg:col-3 mb-8">
-            <div class="bg-surface rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all text-center p-6 h-full">
+            <div class="bg-surface rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 text-center p-6 h-full">
               <div class="flex justify-center mb-4">
                 <span class="text-accent">
                   <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -205,7 +146,7 @@ const featuredArticles = [
           </div>
           
           <div class="col-12 md:col-6 lg:col-3 mb-8">
-            <div class="bg-surface rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all text-center p-6 h-full">
+            <div class="bg-surface rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 text-center p-6 h-full">
               <div class="flex justify-center mb-4">
                 <span class="text-accent">
                   <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -224,7 +165,7 @@ const featuredArticles = [
           </div>
           
           <div class="col-12 md:col-6 lg:col-3 mb-8">
-            <div class="bg-surface rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all text-center p-6 h-full">
+            <div class="bg-surface rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 text-center p-6 h-full">
               <div class="flex justify-center mb-4">
                 <span class="text-accent">
                   <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -242,7 +183,7 @@ const featuredArticles = [
       </div>
       
       <!-- Newsletter -->
-      <div class="mt-16 bg-accent/10 p-8 rounded-lg shadow-md text-center">
+      <div class="mt-16 bg-accent/10 p-8 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 text-center">
         <h3 class="mb-4">Bądź na bieżąco</h3>
         <p class="text-text-secondary mb-6">Zapisz się do naszego newslettera, aby otrzymywać najnowsze materiały edukacyjne i informacje z branży konopnej.</p>
         
@@ -254,7 +195,7 @@ const featuredArticles = [
               class="form-control flex-grow"
               required
             />
-            <button type="submit" class="btn-accent whitespace-nowrap">Zapisz się</button>
+            <button type="submit" class="btn-accent whitespace-nowrap px-6 py-3 rounded-full hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">Zapisz się</button>
           </div>
         </form>
       </div>

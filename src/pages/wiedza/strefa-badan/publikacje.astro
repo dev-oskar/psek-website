@@ -1,0 +1,116 @@
+---
+import PageHeader from "@/components/core/PageHeader.astro";
+import Base from "@/layouts/Base.astro";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+
+// Get all research articles sorted by order and year
+const researchArticles = await getCollection("research");
+const sortedArticles = researchArticles.sort((a, b) => {
+  // First by order if available
+  if (a.data.order !== undefined && b.data.order !== undefined) {
+    return a.data.order - b.data.order;
+  }
+  // If one has order and other doesn't, prioritize the one with order
+  if (a.data.order !== undefined) return -1;
+  if (b.data.order !== undefined) return 1;
+
+  // Then sort by year (more recent first)
+  if (a.data.year && b.data.year) {
+    return parseInt(b.data.year, 10) - parseInt(a.data.year, 10);
+  }
+
+  // Finally sort by title
+  return a.data.title.localeCompare(b.data.title);
+});
+
+// Unique research categories for filtering
+const categories = [...new Set(sortedArticles.map((article) => article.data.category).filter(Boolean))];
+
+const pageData = {
+  title: "Publikacje naukowe",
+  description: "Pełna lista publikacji naukowych z zakresu badań nad konopiami.",
+  data: {},
+};
+---
+
+<Base title={pageData.title} description={pageData.description}>
+  <section class="py-16">
+    <div class="container bg-surface/50 dark:bg-surface/30 backdrop-blur-md rounded-lg shadow-lg p-8 border border-primary/10 dark:border-primary/5">
+      <PageHeader page_data={pageData} />
+    </div>
+  </section>
+
+  <!-- Filter by category -->
+  <section class="section pt-0">
+    <div class="container bg-surface/50 dark:bg-surface/30 backdrop-blur-md rounded-lg shadow-lg p-8 border border-primary/10 dark:border-primary/5">
+      <div class="flex flex-wrap gap-3 justify-center mb-8">
+        <button class="bg-accent/20 text-accent hover:bg-accent/30 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 active"
+          >Wszystkie</button
+        >
+        {
+          categories.map((category) => (
+            <button class="bg-surface hover:bg-accent/10 text-text-secondary hover:text-accent px-4 py-2 rounded-full text-sm font-medium transition-all duration-300">
+              {category}
+            </button>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- All Research Articles -->
+  <section class="section pt-0">
+    <div class="container bg-surface/50 dark:bg-surface/30 backdrop-blur-md rounded-lg shadow-lg p-8 border border-primary/10 dark:border-primary/5">
+      <h2 class="mb-8 text-center relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:h-1 after:w-16 after:bg-accent/60 after:rounded-full">Wszystkie Publikacje</h2>
+      
+      <div class="row">
+        {
+          sortedArticles.map((article) => (
+            <div class="lg:col-4 md:col-6 mb-8">
+              <div class="bg-surface h-full shadow-md hover:shadow-xl transition-all duration-300 rounded-lg overflow-hidden">
+                {article.data.featured_image && (
+                  <div class="h-48 overflow-hidden">
+                    <img
+                      src={article.data.featured_image}
+                      alt={article.data.title}
+                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                )}
+                <div class="p-6">
+                  <div class="flex justify-between items-center mb-3">
+                    <span class="bg-accent/10 text-accent text-xs px-3 py-1 rounded-full">
+                      {article.data.category || "Badania"}
+                    </span>
+                    <span class="text-text-secondary text-sm">{article.data.year}</span>
+                  </div>
+                  <h3 class="h4 mb-3">
+                    <a
+                      href={`/wiedza/strefa-badan/${article.slug}`}
+                      class="block hover:text-accent transition-colors"
+                    >
+                      {article.data.title}
+                    </a>
+                  </h3>
+                  <p class="text-sm text-text-secondary line-clamp-2">
+                    {article.data.description}
+                  </p>
+                  <p class="text-sm text-text-secondary mt-2 italic">
+                    {article.data.authors} • {article.data.institution}
+                  </p>
+                  <a
+                    href={`/wiedza/strefa-badan/${article.slug}`}
+                    class="mt-4 inline-block text-accent hover:underline"
+                  >
+                    Czytaj więcej →
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Base>

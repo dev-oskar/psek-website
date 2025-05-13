@@ -2,6 +2,7 @@
 import PageHeader from "@/components/core/PageHeader.astro";
 import Base from "@/layouts/Base.astro";
 import Section from "@/components/core/Section.astro";
+import { Image } from "astro:assets";
 
 const pageData = {
   title: "Strefa badań naukowych",
@@ -38,42 +39,60 @@ const researchCategories = [
   },
 ];
 
-// Recent research papers
-const researchPapers = [
+// All research papers combined without separation into featured and regular
+const allPapers = [
   {
     title: "Wpływ CBD na poziom lęku u pacjentów z zaburzeniami lękowymi",
+    description: "Badanie wykazało znaczącą redukcję objawów lęku po 8-tygodniowej terapii CBD w dawce 25mg dziennie. Efekt był bardziej widoczny u pacjentów z umiarkowanym nasileniem objawów.",
     authors: "Kowalska A, et al.",
     institution: "Uniwersytet Medyczny w Warszawie",
     year: "2024",
-    conclusions:
-      "Badanie wykazało znaczącą redukcję objawów lęku po 8-tygodniowej terapii CBD w dawce 25mg dziennie. Efekt był bardziej widoczny u pacjentów z umiarkowanym nasileniem objawów.",
+    featured_image: "/images/pexels-kindelmedia-7667911.jpg",
+    category: "Badania medyczne",
+    slug: "wplyw-cbd-na-poziom-leku"
   },
   {
-    title:
-      "Porównanie wydajności uprawy różnych odmian konopi włóknistych w warunkach polskich",
+    title: "Porównanie wydajności uprawy różnych odmian konopi włóknistych w warunkach polskich",
+    description: "Odmiany Białobrzeskie i Henola wykazały najlepszą adaptację do warunków klimatycznych Polski północno-wschodniej, z wydajnością biomasy o 15% wyższą niż inne badane odmiany.",
     authors: "Nowak J, et al.",
     institution: "Instytut Włókien Naturalnych i Roślin Zielarskich",
     year: "2024",
-    conclusions:
-      "Odmiany Białobrzeskie i Henola wykazały najlepszą adaptację do warunków klimatycznych Polski północno-wschodniej, z wydajnością biomasy o 15% wyższą niż inne badane odmiany.",
+    featured_image: "/images/pexels-kindelmedia-7667715.jpg",
+    category: "Badania agronomiczne",
+    slug: "porownanie-wydajnosci-uprawy-konopi"
   },
   {
-    title:
-      "Bioakumulacja metali ciężkich przez konopie na terenach poprzemysłowych",
+    title: "Bioakumulacja metali ciężkich przez konopie na terenach poprzemysłowych",
+    description: "Konopie wykazują wysoki potencjał do fitoremediacji terenów skażonych ołowiem i kadmem, z efektywnością akumulacji wyższą niż u większości roślin testowanych w podobnych warunkach.",
     authors: "Wiśniewski T, et al.",
     institution: "Politechnika Śląska",
     year: "2023",
-    conclusions:
-      "Konopie wykazują wysoki potencjał do fitoremediacji terenów skażonych ołowiem i kadmem, z efektywnością akumulacji wyższą niż u większości roślin testowanych w podobnych warunkach.",
+    featured_image: "/images/pexels-kindelmedia-7665244.jpg",
+    category: "Badania agronomiczne",
+    slug: "bioakumulacja-metali-ciezkich"
+  },
+  {
+    title: "Analiza zawartości kannabinoidów w produktach dostępnych na polskim rynku",
+    description: "Badanie wykazało istotne rozbieżności między deklarowaną a rzeczywistą zawartością CBD w produktach dostępnych na polskim rynku, wskazując na potrzebę ściślejszej kontroli jakości.",
+    authors: "Malinowski P, et al.",
+    institution: "Narodowy Instytut Leków",
+    year: "2023",
+    featured_image: "/images/pexels-kindelmedia-8430480.jpg",
+    category: "Analizy rynkowe",
+    slug: "analiza-zawartosci-kannabinoidow"
   },
 ];
 ---
 
-<Base>
+<Base title={pageData.title} description={pageData.description}>
   <section class="py-16">
     <div class="container bg-surface/50 dark:bg-surface/30 backdrop-blur-md rounded-lg shadow-lg p-8 border border-primary/10 dark:border-primary/5">
       <PageHeader page_data={pageData} />
+    </div>
+  </section>
 
+  <section class="section pt-0">
+    <div class="container bg-surface/50 dark:bg-surface/30 backdrop-blur-md rounded-lg shadow-lg p-8 border border-primary/10 dark:border-primary/5">
       <Section
         section={{
           title: "Innowacje oparte na dowodach naukowych",
@@ -84,102 +103,136 @@ const researchPapers = [
           buttons: [],
         }}
       />
+    </div>
+  </section>
 
-      <!-- Research categories -->
-      <div class="mt-16">
-        <h2 class="mb-8 text-center">Obszary badawcze</h2>
+  <!-- Research categories -->
+  <section class="section pt-0">
+    <div class="container bg-surface/50 dark:bg-surface/30 backdrop-blur-md rounded-lg shadow-lg p-8 border border-primary/10 dark:border-primary/5">
+      <h2 class="mb-8 text-center relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:h-1 after:w-16 after:bg-accent/60 after:rounded-full">Obszary badawcze</h2>
 
-        <div class="row">
-          {
-            researchCategories.map((category) => (
-              <div class="col-12 md:col-6 lg:col-3 mb-8">
-                <div class="bg-surface h-full rounded-lg p-6 shadow-md hover:shadow-lg transition-all">
-                  <div class="flex items-center mb-4">
-                    <span class="text-accent mr-3">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="feather"
-                      >
-                        {category.icon === "activity" && (
-                          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-                        )}
-                        {category.icon === "sun" && (
-                          <>
-                            <circle cx="12" cy="12" r="5" />
-                            <line x1="12" y1="1" x2="12" y2="3" />
-                            <line x1="12" y1="21" x2="12" y2="23" />
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-                            <line x1="1" y1="12" x2="3" y2="12" />
-                            <line x1="21" y1="12" x2="23" y2="12" />
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-                          </>
-                        )}
-                        {category.icon === "settings" && (
-                          <>
-                            <circle cx="12" cy="12" r="3" />
-                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
-                          </>
-                        )}
-                        {category.icon === "bar-chart-2" && (
-                          <>
-                            <line x1="18" y1="20" x2="18" y2="10" />
-                            <line x1="12" y1="20" x2="12" y2="4" />
-                            <line x1="6" y1="20" x2="6" y2="14" />
-                          </>
-                        )}
-                      </svg>
-                    </span>
-                    <h3 class="text-lg">{category.title}</h3>
+      <div class="row">
+        {
+          researchCategories.map((category) => (
+            <div class="col-12 md:col-6 lg:col-3 mb-8">
+              <div class="bg-surface h-full rounded-lg p-6 shadow-md hover:shadow-xl transition-all duration-300">
+                <div class="flex items-center mb-4">
+                  <span class="text-accent mr-3">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="feather"
+                    >
+                      {category.icon === "activity" && (
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                      )}
+                      {category.icon === "sun" && (
+                        <>
+                          <circle cx="12" cy="12" r="5" />
+                          <line x1="12" y1="1" x2="12" y2="3" />
+                          <line x1="12" y1="21" x2="12" y2="23" />
+                          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                          <line x1="1" y1="12" x2="3" y2="12" />
+                          <line x1="21" y1="12" x2="23" y2="12" />
+                          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                        </>
+                      )}
+                      {category.icon === "settings" && (
+                        <>
+                          <circle cx="12" cy="12" r="3" />
+                          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                        </>
+                      )}
+                      {category.icon === "bar-chart-2" && (
+                        <>
+                          <line x1="18" y1="20" x2="18" y2="10" />
+                          <line x1="12" y1="20" x2="12" y2="4" />
+                          <line x1="6" y1="20" x2="6" y2="14" />
+                        </>
+                      )}
+                    </svg>
+                  </span>
+                  <h3 class="text-lg">{category.title}</h3>
+                </div>
+                <p class="text-text-secondary">{category.description}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Research area filter removed as requested -->
+
+  <!-- Featured Research Papers section removed as requested -->
+
+  <!-- All Research Papers -->
+  <section class="section pt-0">
+    <div class="container bg-surface/50 dark:bg-surface/30 backdrop-blur-md rounded-lg shadow-lg p-8 border border-primary/10 dark:border-primary/5">
+      <h2 class="mb-8 text-center relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:h-1 after:w-16 after:bg-accent/60 after:rounded-full">Wszystkie Publikacje</h2>
+      <div class="row">
+        {
+          allPapers.map((paper) => (
+            <div class="lg:col-4 md:col-6 mb-8">
+              <div class="bg-surface h-full shadow-md hover:shadow-xl transition-all duration-300 rounded-lg overflow-hidden">
+                {paper.featured_image && (
+                  <div class="h-48 overflow-hidden">
+                    <img
+                      src={paper.featured_image}
+                      alt={paper.title}
+                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
                   </div>
-                  <p class="text-text-secondary">{category.description}</p>
+                )}
+                <div class="p-6">
+                  <div class="flex justify-between items-center mb-3">
+                    <span class="bg-accent/10 text-accent text-xs px-3 py-1 rounded-full">
+                      {paper.category}
+                    </span>
+                    <span class="text-text-secondary text-sm">{paper.year}</span>
+                  </div>
+                  <h3 class="h4 mb-3">
+                    <a
+                      href={`/wiedza/strefa-badan/${paper.slug}`}
+                      class="block hover:text-accent transition-colors"
+                    >
+                      {paper.title}
+                    </a>
+                  </h3>
+                  <p class="text-sm text-text-secondary line-clamp-2">
+                    {paper.description}
+                  </p>
+                  <p class="text-sm text-text-secondary mt-2 italic">
+                    {paper.authors} • {paper.institution}
+                  </p>
+                  <a
+                    href={`/wiedza/strefa-badan/${paper.slug}`}
+                    class="mt-4 inline-block text-accent hover:underline"
+                  >
+                    Czytaj więcej →
+                  </a>
                 </div>
               </div>
-            ))
-          }
-        </div>
+            </div>
+          ))
+        }
       </div>
 
-      <!-- Recent research papers -->
-      <div class="mt-10">
-        <h2 class="mb-8 text-center">Najnowsze publikacje naukowe</h2>
-
-        <div class="space-y-6">
-          {
-            researchPapers.map((paper, index) => (
-              <div class="bg-surface p-6 rounded-lg shadow-md">
-                <div class="flex justify-between items-start mb-2">
-                  <h3 class="text-xl">{paper.title}</h3>
-                  <span class="bg-accent/10 text-accent text-xs px-3 py-1 rounded-full">
-                    {paper.year}
-                  </span>
-                </div>
-                <p class="text-text-secondary mb-2">
-                  <span class="italic">{paper.authors}</span> •{" "}
-                  {paper.institution}
-                </p>
-                <p class="text-text-secondary">
-                  <strong>Wnioski:</strong> {paper.conclusions}
-                </p>
-              </div>
-            ))
-          }
-        </div>
-
-        <div class="text-center mt-8">
-          <a href="/wiedza/strefa-badan/publikacje" class="btn-accent"
-            >Zobacz więcej publikacji</a
-          >
-        </div>
+      <div class="text-center mt-8">
+        <a href="/wiedza/strefa-badan/publikacje" 
+          class="btn-accent inline-block px-6 py-3 rounded-full hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+          >Zobacz wszystkie publikacje</a
+        >
       </div>
     </div>
   </section>

@@ -1,142 +1,20 @@
 ---
 // src/pages/wiedza/dla-pacjenta/index.astro
-import PageHeader from "@/components/core/PageHeader.astro";
-import Base from "@/layouts/Base.astro";
-import { Image } from "astro:assets";
-import { markdownify } from "@/lib/utils/textConverter";
+import WiedzaSection from "@/layouts/WiedzaSection.astro";
 import { getCollection } from "astro:content";
 
-// Get all patient articles sorted by order (if available)
+// Get all patient articles
 const patientArticles = await getCollection("patient");
-const sortedArticles = patientArticles.sort((a, b) => {
-  // First by order if available
-  if (a.data.order !== undefined && b.data.order !== undefined) {
-    return a.data.order - b.data.order;
-  }
-  // If one has order and other doesn't, prioritize the one with order
-  if (a.data.order !== undefined) return -1;
-  if (b.data.order !== undefined) return 1;
 
-  // Otherwise sort by title
-  return a.data.title.localeCompare(b.data.title);
-});
-
-// Featured articles to show at top (if any)
-const featuredArticles = sortedArticles.filter(
-  (article) => article.data.is_featured
-);
-// Regular articles
-const regularArticles = sortedArticles.filter(
-  (article) => !article.data.is_featured
-);
-
-const pageData = {
-  title: "Strefa Pacjenta",
-  description: "Wiedza i porady dotyczące konopi dla pacjentów",
-  data: {},
-};
+// Title and description for this section
+const title = "Strefa Pacjenta";
+const description = "Wiedza i porady dotyczące konopi dla pacjentów";
 ---
 
-<Base title={pageData.title} description={pageData.description}>
-  <section class="py-16">
-    <div class="container bg-surface/50 dark:bg-surface/30 backdrop-blur-md rounded-lg shadow-lg p-8 border border-primary/10 dark:border-primary/5">
-      <PageHeader page_data={pageData} />
-    </div>
-  </section>
-
-  <!-- Featured Articles Section (if any) -->
-  {
-    featuredArticles.length > 0 && (
-      <section class="section pt-0">
-        <div class="container bg-surface/50 dark:bg-surface/30 backdrop-blur-md rounded-lg shadow-lg p-8 border border-primary/10 dark:border-primary/5">
-          <h2 class="mb-8 text-center">Polecane Artykuły</h2>
-          <div class="row">
-            {featuredArticles.map((article) => (
-              <div class="lg:col-4 md:col-6 mb-8">
-                <div class="bg-surface h-full shadow-md hover:shadow-xl transition-shadow duration-300 rounded-lg overflow-hidden">
-                  {article.data.featured_image && (
-                    <Image
-                      src={article.data.featured_image}
-                      alt={article.data.title}
-                      width={400}
-                      height={250}
-                      class="w-full h-48 object-cover"
-                    />
-                  )}
-                  <div class="p-6">
-                    <h3 class="h4 mb-3">
-                      <a
-                        href={`/wiedza/dla-pacjenta/${article.slug}`}
-                        class="block hover:text-primary transition-colors"
-                      >
-                        {article.data.title}
-                      </a>
-                    </h3>
-                    {article.data.description && (
-                      <p class="text-sm text-text-secondary line-clamp-2">
-                        {article.data.description}
-                      </p>
-                    )}
-                    <a
-                      href={`/wiedza/dla-pacjenta/${article.slug}`}
-                      class="mt-4 inline-block text-primary hover:underline"
-                    >
-                      Czytaj więcej →
-                    </a>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    )
-  }
-
-  <!-- All Articles Section -->
-  <section class="section pt-0">
-    <div class="container bg-surface/50 dark:bg-surface/30 backdrop-blur-md rounded-lg shadow-lg p-8 border border-primary/10 dark:border-primary/5">
-      <h2 class="mb-8 text-center">Wszystkie Artykuły</h2>
-      <div class="row">
-        {
-          regularArticles.map((article) => (
-            <div class="lg:col-4 md:col-6 mb-8">
-              <div class="bg-surface h-full shadow-md hover:shadow-xl transition-shadow duration-300 rounded-lg overflow-hidden">
-                {article.data.featured_image && (
-                  <Image
-                    src={article.data.featured_image}
-                    alt={article.data.title}
-                    width={400}
-                    height={250}
-                    class="w-full h-48 object-cover"
-                  />
-                )}
-                <div class="p-6">
-                  <h3 class="h4 mb-3">
-                    <a
-                      href={`/wiedza/dla-pacjenta/${article.slug}`}
-                      class="block hover:text-primary transition-colors"
-                    >
-                      {article.data.title}
-                    </a>
-                  </h3>
-                  {article.data.description && (
-                    <p class="text-sm text-text-secondary line-clamp-2">
-                      {article.data.description}
-                    </p>
-                  )}
-                  <a
-                    href={`/wiedza/dla-pacjenta/${article.slug}`}
-                    class="mt-4 inline-block text-primary hover:underline"
-                  >
-                    Czytaj więcej →
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-</Base>
+<WiedzaSection 
+  title={title}
+  description={description}
+  collection={patientArticles}
+  articleUrlPrefix="/wiedza/dla-pacjenta"
+  accentColor="primary"
+/>

@@ -65,6 +65,27 @@ const medicalCollection = defineCollection({
   ),
 });
 
+// Research content schema
+const researchCollection = defineCollection({
+  type: "content",
+  schema: z.intersection(
+    z.object({
+      title: z.string(),
+      description: z.string().optional(),
+      meta_title: z.string().optional(),
+      meta_description: z.string().optional(),
+      featured_image: z.string().optional(),
+      is_featured: z.boolean().optional().default(false),
+      order: z.number().optional(),
+      authors: z.string().optional(),
+      institution: z.string().optional(),
+      year: z.string().optional(),
+      category: z.string().optional(),
+    }),
+    zodPageConfig,
+  ),
+});
+
 const indexSchema = z.intersection(
   z.object({
     banner: z.custom<Section>(),
@@ -105,4 +126,5 @@ export const collections = {
   patient: patientCollection,
   business: businessCollection,
   medical: medicalCollection,
+  research: researchCollection,
 };

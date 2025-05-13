@@ -1,0 +1,18 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import ResearchArticle from "@/layouts/ResearchArticle.astro";
+
+// Generate static paths for all research articles
+export async function getStaticPaths() {
+  const researches = await getCollection("research");
+  return researches.map((research) => ({
+    params: { slug: research.slug },
+    props: { research },
+  }));
+}
+
+// Extract page props
+const { research } = Astro.props;
+---
+
+<ResearchArticle post={research} />

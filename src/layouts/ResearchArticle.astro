@@ -1,0 +1,81 @@
+---
+import Base from "@/layouts/Base.astro";
+import { Image } from "astro:assets";
+import { markdownify } from "@/lib/utils/textConverter";
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+  post: CollectionEntry<"research">;
+};
+
+const { post } = Astro.props;
+const {
+  title,
+  description,
+  featured_image,
+  meta_title,
+  meta_description,
+  authors,
+  institution,
+  year,
+  category,
+} = post.data;
+const { Content } = await post.render();
+---
+
+<Base
+  title={meta_title || title}
+  description={meta_description || description}
+  image={featured_image}
+>
+  <section class="section">
+    <div class="container bg-surface/50 dark:bg-surface/30 backdrop-blur-md rounded-lg shadow-lg p-8 border border-primary/10 dark:border-primary/5">
+      <div class="row justify-center">
+        <div class="lg:col-10 xl:col-10">
+          <article class="p-6">
+            {
+              featured_image && (
+                <div class="mb-10 mx-auto max-w-4xl">
+                  <Image
+                    src={featured_image}
+                    height={400}
+                    width={900}
+                    alt={title}
+                    class="w-full rounded shadow-md"
+                  />
+                </div>
+              )
+            }
+
+            <div class="flex flex-wrap justify-between items-start gap-4 mb-6">
+              <h1 class="h2" set:html={markdownify(title)} />
+              {
+                category && (
+                  <span class="inline-block bg-accent/20 text-accent text-sm px-3 py-1 rounded-full whitespace-nowrap">
+                    {category}
+                  </span>
+                )
+              }
+            </div>
+
+            <div class="mb-8 text-text-secondary">
+              {authors && <span class="italic">{authors}</span>}
+              {institution && <span> • {institution}</span>}
+              {year && <span> • {year}</span>}
+            </div>
+
+            {
+              description && (
+                <p class="mb-8 text-lg font-medium" set:html={markdownify(description)} />
+              )
+            }
+
+            <div class="content prose max-w-none">
+              <Content />
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
