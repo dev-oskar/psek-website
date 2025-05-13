@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "tinacms dev -c \"astro dev\"",
-    "build": "tinacms build && astro build",
+    "build": "cross-env NODE_OPTIONS=\"--max_old_space_size=4096\" tinacms build && astro build",
     "start": "tinacms build && astro start",
     "preview": "astro preview",
     "astro": "astro",
@@ -38,6 +38,7 @@
     "@types/node": "^22.13.13",
     "@types/react": "^18.2.54",
     "autoprefixer": "^10.4.17",
+    "cross-env": "^7.0.3",
     "postcss": "^8.4.34",
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0",
