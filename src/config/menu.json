@@ -1,10 +1,6 @@
 {
   "main": [
     {
-      "name": "Strona Główna",
-      "url": "/"
-    },
-    {
       "name": "Strefa wiedzy",
       "url": "/wiedza",
       "hasChildren": true,

@@ -4,8 +4,8 @@
     "base_url": "",
     "base_path": "/",
     "trailing_slash": false,
-    "favicon": "/images/favicon.ico",
-    "logo": "/images/logo-2.png",
+    "favicon": "/images/favicons/favicon.ico",
+    "logo": "/images/PSEK-Logo-Main-transparent.png",
     "logo_width": "47",
     "logo_height": "47",
     "logo_text": "PSEK"
@@ -20,7 +20,7 @@
   },
   "metadata": {
     "meta_author": "alfadev",
-    "meta_image": "/images/logo-2.png",
+    "meta_image": "/images/PSEK-Logo-Main-transparent.png",
     "meta_description": "Polskie Stowarzyszenie Edukacji Konopnej.",
     "meta_keywords": [
       "PSEK",

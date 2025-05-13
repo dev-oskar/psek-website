@@ -7,7 +7,7 @@ input#nav-toggle:checked ~ label#hide-button {
   @apply flex lg:hidden;
 }
 
-input#nav-toggle:checked ~ #nav-menu {
+input#nav-toggle:checked ~ div > #nav-menu {
   @apply block lg:flex;
 }
 .header {
