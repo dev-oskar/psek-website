@@ -36,39 +36,76 @@ const { banner, sections, features, testimonial } = homepage.data;
   
   <!-- contact section -->
   <section id="contact" class="section pt-0">
-    <div class="container">
-      <div class="row">
+    <div class="container bg-surface/50 dark:bg-surface/30 backdrop-blur-md rounded-lg shadow-lg p-8 border border-primary/10 dark:border-primary/5">
+      <div class="row items-center">
         <div class="col-12 text-center mb-8">
-          <h2 class="section-title">Skontaktuj się z nami</h2>
-          <p class="mt-3 text-lg">Masz pytania lub sugestie? Skorzystaj z formularza kontaktowego.</p>
+          <h2 class="section-title relative inline-block">
+            <span class="relative z-10">Skontaktuj się z nami</span>
+            <span class="absolute -bottom-1 left-0 h-2 w-full bg-accent/20 z-0 rounded-md"></span>
+          </h2>
+          <p class="mt-3 text-lg max-w-2xl mx-auto">Masz pytania lub sugestie? Jesteśmy otwarci na współpracę z instytucjami, specjalistami i entuzjastami konopi. Napisz do nas!</p>
         </div>
-        <div class="md:col-12 md:order-1 grid place-content-center">
+        
+        <div class="md:col-6 mb-8 md:mb-0">
+          <div class="p-6">
+            <h3 class="mb-4 text-accent">Dane kontaktowe</h3>
+            <div class="flex items-center mb-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <a href="tel:+48791327982" class="hover:text-accent transition-colors">+48 791 327 982</a>
+            </div>
+            <div class="flex items-center mb-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <a href="mailto:kontakt@psek.edu.pl" class="hover:text-accent transition-colors">kontakt@psek.edu.pl</a>
+            </div>
+            <div class="flex items-center mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Polska ❤️</span>
+            </div>
+            <div class="mt-8">
+              <img 
+                src="/images/david-gabric-KdC5agsz6ik-unsplash.jpg" 
+                alt="Konopie" 
+                class="rounded-lg shadow-md w-full h-48 object-cover" 
+              />
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:col-6">
           <form
-            class="lg:max-w-[484px]"
+            class="p-6 bg-surface/80 shadow-lg rounded-lg"
             action="#"
             method="POST"
           >
             <div class="form-group mb-5">
-              <label class="form-label" for="name">Imię i nazwisko</label>
+              <label class="form-label text-accent" for="name">Imię i nazwisko</label>
               <input
-                class="form-control"
+                class="form-control border border-accent/30 focus:border-accent shadow-sm bg-white/80 dark:bg-surface-contrast/20"
                 type="text"
                 id="name"
                 placeholder="Twoje imię i nazwisko"
               />
             </div>
             <div class="form-group mb-5">
-              <label class="form-label" for="email">Adres email</label>
+              <label class="form-label text-accent" for="email">Adres email</label>
               <input
-                class="form-control"
+                class="form-control border border-accent/30 focus:border-accent shadow-sm bg-white/80 dark:bg-surface-contrast/20"
                 type="email"
                 id="email"
                 placeholder="Twój adres email"
               />
             </div>
             <div class="form-group mb-5">
-              <label class="form-label" for="reason">Powód kontaktu</label>
-              <select name="reason" id="reason" class="form-select" required>
+              <label class="form-label text-accent" for="reason">Powód kontaktu</label>
+              <select name="reason" id="reason" class="form-select border border-accent/30 focus:border-accent shadow-sm bg-white/80 dark:bg-surface-contrast/20" required>
                 <option value="">Wybierz powód kontaktu</option>
                 <option value="hello">Pytanie ogólne</option>
                 <option value="business">Współpraca biznesowa</option>
@@ -78,19 +115,20 @@ const { banner, sections, features, testimonial } = homepage.data;
               </select>
             </div>
             <div class="form-group mb-5">
-              <label class="form-label" for="message">Wiadomość</label>
+              <label class="form-label text-accent" for="message">Wiadomość</label>
               <textarea
-                class="form-control h-[150px]"
+                class="form-control h-[150px] border border-accent/30 focus:border-accent shadow-sm bg-white/80 dark:bg-surface-contrast/20"
                 id="message"
                 placeholder="Twoja wiadomość..."
                 cols="30"
                 rows="10"></textarea>
             </div>
-            <input
-              class="btn-primary block w-full"
+            <button
+              class="btn-primary block w-full bg-accent hover:bg-accent/80 text-white font-bold py-3 px-6 rounded-lg transition-colors shadow-md"
               type="submit"
-              value="Wyślij wiadomość"
-            />
+            >
+              Wyślij wiadomość
+            </button>
           </form>
         </div>
       </div>

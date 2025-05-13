@@ -30,6 +30,59 @@ export default defineConfig({
   schema: {
     collections: [
       {
+        name: "about",
+        label: "O Nas",
+        path: "src/content/about",
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Tytuł",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "string",
+            name: "meta_title",
+            label: "SEO Tytuł",
+            description: "Tytuł używany w meta tagach (SEO)",
+            required: false,
+          },
+          {
+            type: "string",
+            name: "description",
+            label: "Krótki opis",
+            required: false,
+          },
+          {
+            type: "string",
+            name: "meta_description",
+            label: "SEO Opis",
+            description: "Opis używany w meta tagach (SEO)",
+            required: false,
+          },
+          {
+            type: "image",
+            name: "image",
+            label: "Zdjęcie główne",
+            required: false,
+          },
+          {
+            type: "boolean",
+            name: "draft",
+            label: "Wersja robocza",
+            description: "Ustaw na true, aby ukryć stronę",
+            required: false,
+          },
+          {
+            type: "rich-text",
+            name: "body",
+            label: "Treść",
+            isBody: true,
+          },
+        ],
+      },
+      {
         name: "post",
         label: "Posts",
         path: "content/posts",

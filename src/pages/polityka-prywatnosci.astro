@@ -1,0 +1,29 @@
+---
+import Base from "@/layouts/Base.astro";
+import { getEntryBySlug } from "astro:content";
+
+const page = await getEntryBySlug("pages", "polityka-prywatnosci");
+const { Content } = await page.render();
+---
+
+<Base entry_keys={["pages", "polityka-prywatnosci"]}>
+  <section class="section">
+    <div class="container bg-surface/50 dark:bg-surface/30 backdrop-blur-md rounded-lg shadow-lg p-8 border border-primary/10 dark:border-primary/5">
+      <div class="row justify-center">
+        <div class="mb-10 text-center md:col-10 lg:col-8 xl:col-7">
+          <h1 class="mb-4">{page.data.title}</h1>
+          {
+            page.data.description && (
+              <p class="text-lg">{page.data.description}</p>
+            )
+          }
+        </div>
+        <div class="lg:col-10 xl:col-9">
+          <div class="prose max-w-none">
+            <Content />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

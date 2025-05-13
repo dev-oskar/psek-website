@@ -16,6 +16,10 @@
         {
           "name": "Dla lekarzy",
           "url": "/wiedza/dla-lekarzy"
+        },
+        {
+          "name": "Strefa badań",
+          "url": "/wiedza/strefa-badan"
         }
       ]
     },
@@ -24,13 +28,17 @@
       "url": "/wiedza/abc-konopi"
     },
     {
-      "name": "Więcej",
-      "url": "/",
+      "name": "O nas",
+      "url": "/o-nas",
       "hasChildren": true,
       "children": [
         {
-          "name": "Strefa badań",
-          "url": "/wiedza/strefa-badan"
+          "name": "O stowarzyszeniu",
+          "url": "/o-nas"
+        },
+        {
+          "name": "Członkowie",
+          "url": "/czlonkowie"
         },
         {
           "name": "Aktualności",
@@ -40,7 +48,35 @@
     },
     {
       "name": "Kontakt",
-      "url": "/about"
+      "url": "/#contact",
+      "hasChildren": false
+    },
+    {
+      "name": "Więcej",
+      "url": "/",
+      "hasChildren": true,
+      "children": [
+        {
+          "name": "Statut Stowarzyszenia",
+          "url": "/statut"
+        },
+        {
+          "name": "Regulamin",
+          "url": "/regulamin"
+        },
+        {
+          "name": "Polityka prywatności",
+          "url": "/polityka-prywatnosci"
+        },
+        {
+          "name": "Zasady dołączenia",
+          "url": "/zasady-dolaczenia"
+        },
+        {
+          "name": "Partnerzy wspierający",
+          "url": "/partnerzy"
+        }
+      ]
     }
   ],
   "footer": [
@@ -49,8 +85,16 @@
       "url": "/"
     },
     {
+      "name": "O nas",
+      "url": "/o-nas"
+    },
+    {
+      "name": "Członkowie",
+      "url": "/czlonkowie"
+    },
+    {
       "name": "Kontakt",
-      "url": "/contact"
+      "url": "/#contact"
     }
   ]
 }

@@ -21,19 +21,19 @@ const { Content } = await post.render();
   image={featured_image}
 >
   <section class="section">
-    <div class="container">
+    <div class="container bg-surface/50 dark:bg-surface/30 backdrop-blur-md rounded-lg shadow-lg p-8 border border-primary/10 dark:border-primary/5">
       <div class="row justify-center">
-        <div class="lg:col-10">
-          <article class="bg-surface p-6 shadow-lg rounded-lg">
+        <div class="lg:col-10 xl:col-10">
+          <article class="p-6">
             {
               featured_image && (
-                <div class="mb-10">
+                <div class="mb-10 mx-auto max-w-4xl">
                   <Image
                     src={featured_image}
-                    height={500}
-                    width={1200}
+                    height={400}
+                    width={900}
                     alt={title}
-                    class="w-full rounded"
+                    class="w-full rounded shadow-md"
                   />
                 </div>
               )

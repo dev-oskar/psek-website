@@ -1,8 +1,8 @@
 ---
-document_title: Contact
-meta_description: "Get in touch with me. Id'd love to hear from you."
-meta_keywords: "astro, alfadev, starter, contact, linkedin, Diego Alfaro Saez"
+document_title: Kontakt
+meta_description: "Skontaktuj się z nami. Czekamy na Twoją wiadomość."
+meta_keywords: "konopie, psek, kontakt, edukacja, stowarzyszenie"
 
-title: Get in touch
-description: "Whether you have a question, a suggestion, or just want to say hi, feel free to reach out. I'll get back to you as soon as possible."
+title: Skontaktuj się z nami
+description: "Masz pytanie, sugestię lub chcesz się przywitać? Skorzystaj z formularza kontaktowego, a my odpowiemy najszybciej jak to możliwe."
 ---

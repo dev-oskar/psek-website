@@ -24,49 +24,58 @@ const { contact_form_action } = config.params;
             class="lg:max-w-[484px]"
             action={contact_form_action}
             method="POST"
+            name="contact"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
           >
+            <input type="hidden" name="form-name" value="contact" />
             <div class="form-group mb-5">
-              <label class="form-label" for="name">Full Name</label>
+              <label class="form-label" for="name">Imię i nazwisko</label>
               <input
                 class="form-control"
                 type="text"
                 id="name"
-                placeholder="Your Full Name"
+                name="name"
+                placeholder="Twoje imię i nazwisko"
+                required
               />
             </div>
             <div class="form-group mb-5">
-              <label class="form-label" for="eamil">Email Adrdess</label>
+              <label class="form-label" for="email">Adres email</label>
               <input
                 class="form-control"
-                type="text"
+                type="email"
                 id="email"
-                placeholder="Your  Email Address"
+                name="email"
+                placeholder="Twój adres email"
+                required
               />
             </div>
             <div class="form-group mb-5">
-              <label class="form-label" for="reason">Reason/Purpose</label>
+              <label class="form-label" for="reason">Powód kontaktu</label>
               <select name="reason" id="reason" class="form-select" required>
-                <option value="">Select reason/purpose</option>
-                <option value="hello">Wanted to say hello</option>
-                <option value="work-with-you">I want to work with you</option>
-                <option value="work-for-me">I want you to work for me</option>
-                <option value="investment plane-3">There's a project I want to discuss with you</option>
-                <option value="investment plane-3">Other</option>
+                <option value="">Wybierz powód kontaktu</option>
+                <option value="hello">Chcę się przywitać</option>
+                <option value="work-with-you">Chcę współpracować ze stowarzyszeniem</option>
+                <option value="work-for-me">Chcę nawiązać współpracę biznesową</option>
+                <option value="investment">Mam projekt, który chcę omówić</option>
+                <option value="other">Inny powód</option>
               </select>
             </div>
             <div class="form-group mb-5">
-              <label class="form-label" for="message">Message Here</label>
+              <label class="form-label" for="message">Treść wiadomości</label>
               <textarea
                 class="form-control h-[150px]"
                 id="message"
+                name="message"
                 cols="30"
-                rows="10"></textarea>
+                rows="10"
+                required></textarea>
             </div>
             <input
               class="btn-primary block w-full"
               type="submit"
-              value="Send Message"
-              onclick="alert('This form is not functional. Please use the email address provided in the footer to contact me.')"
+              value="Wyślij wiadomość"
             />
           </form>
         </div>

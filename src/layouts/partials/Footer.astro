@@ -13,25 +13,25 @@ const has_social = Object.entries(social).some(
 );
 ---
 
-<footer class="footer border-t border-border mx-4">
+<footer class="footer border-t border-border mx-4 bg-surface/80 dark:bg-surface-contrast/20 backdrop-blur-md shadow-lg">
   <div class="container">
     <div class="gx-5 row pb-10 pt-[52px]">
       <div class="col-12 mt-12 md:col-6 lg:col-3">
         <Logo />
-        <p class="mt-6">
+        <p class="mt-6 text-text-secondary dark:text-text-secondary-contrast">
           {footer_description}
         </p>
-        <p class="mt-6" set:html={markdownify(copyright)} />
+        <p class="mt-6 text-text-secondary dark:text-text-secondary-contrast" set:html={markdownify(copyright)} />
       </div>
       {
         has_social && (
           <>
             <div class="col-12 mt-12 md:col-6 lg:col-3">
-              <h6>{social.title ?? "Znajdź nas na"}</h6>
+              <h6 class="text-accent font-bold">{social.title ?? "Znajdź nas na"}</h6>
               <Social source={social} className="social-icons mt-4 lg:mt-6" />
             </div>
             <div class="col-12 mt-12 md:col-6 lg:col-3">
-              <h6>Na skróty</h6>
+              <h6 class="text-accent font-bold">Na skróty</h6>
               <ul>
                 {footer.map((item, i) => (
                   <li class={footer.length - 1 === i ? "mb-0" : "mb-4"}>
@@ -49,7 +49,7 @@ const has_social = Object.entries(social).some(
         )
       }
       <div class="col-12 mt-12 md:col-6 lg:col-3">
-        <h6>Adres & Kontakt</h6>
+        <h6 class="text-accent font-bold">Adres & Kontakt</h6>
         <ul>
           <li class="mb-2">{location}</li>
           <li class="mb-2">
