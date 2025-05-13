@@ -25,12 +25,23 @@ const { pathname } = Astro.url;
     <div class="order-0">
       <Logo />
     </div>
-    <!-- navbar toggler -->
+
+    <!-- navbar toggler - moved to the right side -->
     <input id="nav-toggle" type="checkbox" class="hidden" />
+    
+    <!-- spacer to push hamburger to the right -->
+    <div class="flex-grow order-1"></div>
+    
+    <!-- Theme toggle for desktop only -->
+    <div class="hidden lg:flex order-2 items-center mr-2">
+      <ThemeToggle />
+    </div>
+    
+    <!-- Hamburger menu buttons -->
     <label
       id="show-button"
       for="nav-toggle"
-      class="order-2 flex cursor-pointer items-center lg:hidden mr-6"
+      class="order-3 flex cursor-pointer items-center lg:hidden ml-2"
     >
       <svg class="h-6 fill-current" viewBox="0 0 20 20">
         <title>Menu Open</title>
@@ -40,7 +51,7 @@ const { pathname } = Astro.url;
     <label
       id="hide-button"
       for="nav-toggle"
-      class="order-2 hidden cursor-pointer items-center lg:hidden mr-6"
+      class="order-3 hidden cursor-pointer items-center lg:hidden ml-2"
     >
       <svg class="h-6 fill-current" viewBox="0 0 20 20">
         <title>Menu Close</title>
@@ -50,15 +61,21 @@ const { pathname } = Astro.url;
       </svg>
     </label>
     <!-- /navbar toggler -->
-
-    <!-- spacer to push nav to the right -->
-    <div class="flex-grow order-1 hidden lg:block"></div>
-
-    <div class="order-3 flex items-center flex-wrap">
+    
+    <!-- Mobile nav menu - full width -->
+    <div class="order-4 w-full lg:w-auto lg:order-1">
       <ul
         id="nav-menu"
-        class="navbar-nav hidden w-full absolute top-full left-0 bg-surface-100 shadow-md lg:shadow-none lg:static lg:flex lg:w-auto lg:space-x-4 lg:mr-4 lg:bg-transparent items-center"
+        class="navbar-nav hidden w-full absolute top-full left-0 bg-surface shadow-md lg:shadow-none lg:static lg:flex lg:w-auto lg:space-x-4 lg:mr-4 lg:bg-transparent items-center"
       >
+        {/* Theme toggle for mobile only */}
+        <li class="nav-item lg:hidden border-b border-gray-200 dark:border-gray-700 pb-2 mb-2 flex items-center">
+          <span class="nav-link inline-block px-3 py-2">Tryb:</span>
+          <div class="flex items-center">
+            <ThemeToggle />
+          </div>
+        </li>
+        
         {
           main.map((menu) => (
             <>
@@ -123,10 +140,6 @@ const { pathname } = Astro.url;
           ))
         }
       </ul>
-
-      <div class="items-center">
-        <ThemeToggle />
-      </div>
     </div>
   </nav>
 </header>
