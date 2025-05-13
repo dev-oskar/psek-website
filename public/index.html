@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Netlify Forms</title>
+  </head>
+  <body>
+    <!-- This form is used for Netlify form detection during build time -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <select name="reason">
+        <option value="hello">Chcę się przywitać</option>
+        <option value="work-with-you">Chcę współpracować ze stowarzyszeniem</option>
+        <option value="work-for-me">Chcę nawiązać współpracę biznesową</option>
+        <option value="investment">Mam projekt, który chcę omówić</option>
+        <option value="other">Inny powód</option>
+      </select>
+      <textarea name="message"></textarea>
+    </form>
+  </body>
+</html>
