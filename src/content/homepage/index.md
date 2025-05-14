@@ -2,7 +2,7 @@
 # Does not contain meta customizations because it is the homepage and config is already set in the config file
 
 banner:
-  title: "Polskie Stowarzyszenie Edukacji Konopnej"
+  title: "PSEK"
   title_size: "text-4xl md:text-6xl"
   content: "Jesteśmy organizacją zajmującą się edukacją i promocją wykorzystania konopi w różnych gałęziach życia i gospodarki."
   image: /images/psek_logo_black.png
@@ -37,31 +37,31 @@ features:
   feature_list:
     - icon: "book" #icon package react-feather-icon [https://feathericons.com/]
       title: Strefa Pacjenta
-      content: Kompleksowa wiedza medyczna, ale nie przytłaczająca. Materiały dostosowane do Twoich potrzeb.
+      content: Poznaj podstawowe różnice między <span class="text-accent font-bold">CBD a THC</span> oraz podstawy stosowania konopi w celach leczniczych. Materiały dostosowane specjalnie dla pacjentów.
     - icon: "briefcase"
       title: Strefa Biznesu
-      content: Wykorzystujemy <span class="text-accent font-bold">najnowsze dane rynkowe</span> i <span class="text-accent font-bold">analizy branżowe</span> dla rozwoju Twojego biznesu.
+      content: Odkryj innowacje i trendy w przemyśle konopnym, które mogą pomóc rozwinąć Twój biznes. <span class="text-accent font-bold">Analizy rynkowe</span> i perspektywy biznesowe.
     - icon: "activity"
       title: Strefa Medyczna
-      content: Ogólnie znana teza głosi, iż użytkownika może rozpraszać zrozumiała zawartość strony, kiedy ten chce zobaczyć sam jej wygląd
+      content: Informacje dotyczące zastosowania kannabinoidów w <span class="text-accent font-bold">leczeniu bólu przewlekłego</span> i innych dolegliwości. Materiały dla profesjonalistów medycznych.
     - icon: "table"
       title: Konopne ABC
-      content: Podstawowa wiedza o konopiach dostępna poprzez <b class="text-text">intuicyjny system nauki</b>, zawsze pod ręką.
+      content: Podstawowa wiedza o konopiach dla początkujących - poznaj rodzaje, zastosowania i historię tej <b class="text-text">wszechstronnej rośliny</b>.
     - icon: "target"
       title: Zastosowania
-      content: Skupiamy się na praktycznych aspektach wykorzystania konopi. Od <span class="text-shadow-sm shadow-surface-contrast">włókna po kwiat</span>.
+      content: Odkryj różnorodne zastosowania konopi w medycynie, przemyśle włókienniczym, budownictwie i innych dziedzinach. Od <span class="text-accent font-bold">włókna po kwiat</span>.
     - icon: "calendar"
       title: Aktualności
-      content: Bądź na bieżąco z najnowszymi wydarzeniami. <b class="text-text">Systematyczne aktualizacje</b> ze świata konopi.
-    - icon: "award"
-      title: Certyfikacja
-      content: Profesjonalne ***programy szkoleniowe*** z możliwością uzyskania branżowych certyfikatów.
+      content: Bądź na bieżąco z najnowszymi wydarzeniami, badaniami i zmianami prawnymi w świecie konopi. <b class="text-text">Regularne aktualizacje</b>.
+    - icon: "search"
+      title: Strefa Badań
+      content: Przegląd najnowszych <span class="text-accent font-bold">badań naukowych</span> dotyczących konopi, porównania wydajności upraw oraz wpływu CBD na poziom lęku i inne aspekty zdrowia.
     - icon: "users"
-      title: Społeczność
-      content: Dołącz do ekspertów i entuzjastów. Zapewniamy <b class="text-text">wsparcie mentorskie</b> na każdym etapie.
-    - icon: "map"
-      title: Przewodnik
-      content: Zbudowany z ***modułowych sekcji*** ułatwiających nawigację po świecie konopi włóknistych i medycznych.
+      title: Członkowie
+      content: Poznaj <span class="text-accent font-bold">zespół zarządzający</span>, radę naukową i członków honorowych PSEK. Dowiedz się, kto tworzy naszą społeczność ekspertów.
+    - icon: "award"
+      title: Partnerzy Wspierający
+      content: Poznaj organizacje i firmy, które wspierają naszą misję edukacji o konopiach. <span class="text-accent font-bold">Współpraca</span> jest kluczem do budowania silnej społeczności.
 
 #testimonial
 testimonial:
