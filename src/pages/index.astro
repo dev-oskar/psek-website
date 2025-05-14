@@ -15,9 +15,13 @@ const { banner, sections, features, testimonial } = homepage.data;
 
 <Base>
   <!-- banner -->
-  <section class="lg:mb-10 animate-fade-in">
+  <section class="animate-fade-in mb-0">
     <Section section={banner} />
   </section>
+  <!-- key features -->
+  <div class="mt-8 mb-8">
+    <Features features={features} />
+  </div>
   <!-- multi section -->
   {
     sections && (
@@ -28,15 +32,13 @@ const { banner, sections, features, testimonial } = homepage.data;
       </section>
     )
   }
-  <!-- key features -->
-  <Features features={features} />
   <!-- testimonial -->
   <!-- <Testimonial testimonial={testimonial} /> -->
   <!-- call to action -->
   <!-- <Cta {...call_to_action} /> -->
 
   <!-- contact section -->
-  <section id="contact" class="section pt-0">
+  <section id="contact" class="section">
     <div
       class="container bg-surface/50 dark:bg-surface/30 backdrop-blur-md rounded-lg shadow-lg p-8 border border-primary/10 dark:border-primary/5"
     >
@@ -167,24 +169,6 @@ const { banner, sections, features, testimonial } = homepage.data;
                 placeholder="Twój adres email"
                 required
               />
-            </div>
-            <div class="form-group mb-5">
-              <label class="form-label text-accent" for="reason"
-                >Powód kontaktu</label
-              >
-              <select
-                name="reason"
-                id="reason"
-                class="form-select border border-accent/30 focus:border-accent shadow-sm bg-white/80 dark:bg-surface-contrast/20"
-                required
-              >
-                <option value="">Wybierz powód kontaktu</option>
-                <option value="hello">Pytanie ogólne</option>
-                <option value="business">Współpraca biznesowa</option>
-                <option value="medical">Zapytanie medyczne</option>
-                <option value="event">Organizacja wydarzenia</option>
-                <option value="other">Inne</option>
-              </select>
             </div>
             <div class="form-group mb-5">
               <label class="form-label text-accent" for="message"

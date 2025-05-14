@@ -1,6 +1,29 @@
 {
   "main": [
     {
+      "name": "O nas",
+      "url": "/o-nas",
+      "hasChildren": true,
+      "children": [
+        {
+          "name": "O stowarzyszeniu",
+          "url": "/o-nas"
+        },
+        {
+          "name": "Członkowie",
+          "url": "/czlonkowie"
+        },
+        {
+          "name": "Aktualności",
+          "url": "/aktualnosci"
+        }
+      ]
+    },
+    {
+      "name": "ABC Konopi",
+      "url": "/wiedza/abc-konopi"
+    },
+    {
       "name": "Strefa wiedzy",
       "url": "/wiedza",
       "hasChildren": true,
@@ -20,29 +43,6 @@
         {
           "name": "Strefa badań",
           "url": "/wiedza/strefa-badan"
-        }
-      ]
-    },
-    {
-      "name": "ABC Konopi",
-      "url": "/wiedza/abc-konopi"
-    },
-    {
-      "name": "O nas",
-      "url": "/o-nas",
-      "hasChildren": true,
-      "children": [
-        {
-          "name": "O stowarzyszeniu",
-          "url": "/o-nas"
-        },
-        {
-          "name": "Członkowie",
-          "url": "/czlonkowie"
-        },
-        {
-          "name": "Aktualności",
-          "url": "/aktualnosci"
         }
       ]
     },

@@ -1,15 +1,15 @@
 // section style
 .section {
-  @apply py-16;
+  @apply py-4;
 }
 
 // If .section are surrounded by a .multi-section class, make even sections have a flex direction of row-reverse
 .multi-section {
+  @apply space-y-0;
 
   & > .section:nth-child(even):not(.custom-position) .row {
     @apply md:flex-row-reverse;
   }
-
 }
 
 // badge
