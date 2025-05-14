@@ -1,3 +1,84 @@
 .bg-gradient-primary {
     background-image: linear-gradient(184.78deg, rgba(var(--primary)), rgba(var(--secondary)) 120.07%);
 }
+
+.container-fluid {
+    width: 100%;
+    max-width: 100vw;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Equal width sections */
+:root {
+    --section-width: 90%;
+    
+    @media (min-width: 1024px) { /* lg breakpoint */
+        --section-width: 85%; 
+    }
+    
+    @media (min-width: 1280px) { /* xl breakpoint */
+        --section-width: 80%;
+    }
+}
+
+.equal-width-section {
+    width: 100%;
+    max-width: var(--section-width) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Container overrides for equal width */
+.equal-width-container {
+    width: 100%;
+    max-width: 100% !important;
+}
+
+/* Full width sections for after features */
+.multi-section {
+    .section {
+        margin-bottom: 1px; /* Small gap between sections */
+        transition: background-color 0.3s ease;
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+/* Mobile optimizations for feature sections */
+@media (max-width: 640px) {
+    .multi-section {
+        .section {
+            /* Add overall padding to the container */
+            padding-left: 0.75rem;
+            padding-right: 0.75rem;
+            
+            .object-cover {
+                height: 350px !important; /* Force larger images on mobile */
+            }
+            
+            /* Ensure consistent spacing between text and image */
+            .flex-col > div:first-child {
+                margin-bottom: 1.5rem;
+                padding-left: 0.75rem !important;
+                padding-right: 0.75rem !important;
+            }
+            
+            /* Remove any bottom margin from text div to avoid extra spacing */
+            .flex-col > div:last-child {
+                margin-bottom: 0;
+            }
+
+            /* Ensure text content is not too close to edges - MOBILE ONLY */
+            .text-center {
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 95% !important;
+            }
+        }
+    }
+}

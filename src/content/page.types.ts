@@ -26,6 +26,10 @@ export interface PageSection {
    * use tailwindcss text size classes
    */
   title_size?: string;
+  /**
+   * Optional subtitle displayed below the title
+   */
+  subtitle?: string;
   content: string;
   buttons: LinkButton[] & { length: 0 | 1 | 2};
   image: string;

@@ -15,21 +15,21 @@ const { banner, sections, features, testimonial } = homepage.data;
 
 <Base>
   <!-- banner -->
-  <section class="animate-fade-in mb-0">
+  <section class="animate-fade-in mb-0 equal-width-section">
     <Section section={banner} />
   </section>
   <!-- key features -->
-  <div class="mt-8 mb-8">
+  <div class="mt-8 mb-8 equal-width-section">
     <Features features={features} />
   </div>
   <!-- multi section -->
   {
     sections && (
-      <section class="multi-section">
-        {sections.map((section) => (
-          <Section section={section} />
+      <div class="multi-section w-full max-w-[100vw] mt-16 mb-16">
+        {sections.map((section, index) => (
+          <Section section={section} sectionIndex={index} isAfterFeature={true} />
         ))}
-      </section>
+      </div>
     )
   }
   <!-- testimonial -->
@@ -38,9 +38,9 @@ const { banner, sections, features, testimonial } = homepage.data;
   <!-- <Cta {...call_to_action} /> -->
 
   <!-- contact section -->
-  <section id="contact" class="section">
+  <section id="contact" class="section equal-width-section mt-12">
     <div
-      class="container bg-surface/50 dark:bg-surface/30 backdrop-blur-md rounded-lg shadow-lg p-8 border border-primary/10 dark:border-primary/5"
+      class="container equal-width-container bg-surface/50 dark:bg-surface/30 backdrop-blur-md rounded-lg shadow-lg p-8 border border-primary/10 dark:border-primary/5"
     >
       <div class="row items-center">
         <div class="col-12 text-center mb-8">

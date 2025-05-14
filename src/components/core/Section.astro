@@ -7,33 +7,60 @@ import Button from "../LinkButton.astro";
 export type Section = PageSection;
 export type Props = {
   section: Section;
+  sectionIndex?: number;
+  isAfterFeature?: boolean;
 };
 
-const { section } = Astro.props;
+const { section, sectionIndex = 0, isAfterFeature = false } = Astro.props;
 if (!section) {
   throw new Error("Section data is required");
 }
-const { title, buttons, image, content, image_position } = section;
+const { title, subtitle, buttons, image, content, image_position } = section;
+
+// For sections after features, alternate left/right based on index
+const alternatePosition = isAfterFeature ? (sectionIndex % 2 === 0 ? "right" : "left") : image_position;
+
 const image_position_classes = (() => {
-  if (!image && !image_position) {
+  if (!image && !alternatePosition) {
     return ["", "col-12", ""];
   }
 
   if (image) {
-    switch (image_position) {
-      case "top":
-        return ["flex-row-reverse", "col-12", "col-12 mb-4 lg:mb-0"];
-      case "bottom":
-        return ["", "col-12", "col-12"];
-      case "left":
-        return [
-          "flex-row-reverse",
-          "col-12 md:col-7 lg:col-6",
-          "col-12 md:col-5 lg:col-6",
-        ];
-      case "right":
-      default:
-        return ["", "col-12 md:col-7 lg:col-6", "col-12 md:col-5 lg:col-6"];
+    if (isAfterFeature) {
+      // For sections after features, adjust the content proportions
+      // On mobile: Image always at bottom, On desktop: maintain left/right pattern
+      switch (alternatePosition) {
+        case "left":
+          return [
+            "sm:flex-row-reverse flex-col", // Text on right, image on left for desktop; stacked for mobile
+            "col-12 sm:col-6 md:col-7 lg:col-7",  // More equal on mobile, more text space on desktop
+            "col-12 sm:col-6 md:col-5 lg:col-5 min-h-[300px]",  // Minimum height for mobile
+          ];
+        case "right":
+        default:
+          return [
+            "sm:flex-row flex-col", // Text on left, image on right for desktop; stacked for mobile
+            "col-12 sm:col-6 md:col-7 lg:col-7",  // More equal on mobile, more text space on desktop
+            "col-12 sm:col-6 md:col-5 lg:col-5 min-h-[300px]",  // Minimum height for mobile
+          ];
+      }
+    } else {
+      // Standard sections
+      switch (alternatePosition) {
+        case "top":
+          return ["flex-row-reverse", "col-12", "col-12 mb-4 lg:mb-0"];
+        case "bottom":
+          return ["", "col-12", "col-12"];
+        case "left":
+          return [
+            "flex-row-reverse",
+            "col-12 md:col-7 lg:col-6",
+            "col-12 md:col-5 lg:col-6",
+          ];
+        case "right":
+        default:
+          return ["", "col-12 md:col-7 lg:col-6", "col-12 md:col-5 lg:col-6"];
+      }
     }
   } else {
     return ["", "col-12", ""];
@@ -43,32 +70,36 @@ const image_position_classes = (() => {
 
 <section class="section relative">
   <div
-    class="container bg-surface/50 dark:bg-surface/30 backdrop-blur-md rounded-lg shadow-lg p-8 border border-primary/10 dark:border-primary/5"
+    class={`${isAfterFeature ? 'container-fluid mx-0 px-0 max-w-full' : 'container equal-width-container'} ${
+      isAfterFeature ? (sectionIndex % 2 === 0 ? 'bg-surface/70 dark:bg-surface/50' : 'bg-accent/10 dark:bg-accent/5') : 'bg-surface/50 dark:bg-surface/30'
+    } backdrop-blur-md shadow-lg border border-primary/10 dark:border-primary/5 overflow-hidden`}
   >
     <div
-      class=`row items-center ${image_position ? 'custom-position' : ''} ${image_position_classes[0]}`
+      class={`row items-stretch ${alternatePosition ? 'custom-position' : ''} ${image_position_classes[0]} ${isAfterFeature ? 'h-auto min-h-[650px] sm:min-h-[550px] md:h-[550px] lg:h-[550px]' : 'h-[500px] md:h-[450px] lg:h-[500px]'}`}
     >
       {
-        image && image_position === "top" && (
+        image && alternatePosition === "top" && (
           <div class={`${image_position_classes[2]}`}>
             {image.includes("psek_logo_black.png") ? (
               <>
-                <Image
-                  class="mr-auto ml-auto object-contain w-1/2 dark:hidden"
-                  alt={title || "Section content"}
-                  src="/images/psek_logo_black.png"
-                  width={500}
-                  height={333}
-                  loading="lazy"
-                />
-                <Image
-                  class="mr-auto ml-auto object-contain w-1/2 hidden dark:block"
-                  alt={title || "Section content"}
-                  src="/images/psek_logo_white.png"
-                  width={500}
-                  height={333}
-                  loading="lazy"
-                />
+                <div class="flex items-center justify-center h-full">
+                  <Image
+                    class="object-contain max-h-[180px] w-auto max-w-[80%] dark:hidden"
+                    alt={title || "Section content"}
+                    src="/images/psek_logo_black.png"
+                    width={180}
+                    height={180}
+                    loading="lazy"
+                  />
+                  <Image
+                    class="object-contain max-h-[180px] w-auto max-w-[80%] hidden dark:block"
+                    alt={title || "Section content"}
+                    src="/images/psek_logo_white.png"
+                    width={180}
+                    height={180}
+                    loading="lazy"
+                  />
+                </div>
               </>
             ) : (
               <Image
@@ -88,10 +119,12 @@ const image_position_classes = (() => {
           </div>
         )
       }
-      <div class=`${image_position_classes[1]}`>
-        <h1 class={`${section.title_size}`} set:html={markdownify(title)} />
+      <div class={`${image_position_classes[1]} px-6 py-4 sm:p-6 md:p-8 ${isAfterFeature ? 'py-8 sm:py-10 md:py-16' : 'py-8 md:py-12'} flex flex-col justify-center`}>
+        <h1 class={`${section.title_size || (isAfterFeature ? "text-3xl md:text-4xl lg:text-5xl" : "text-2xl md:text-3xl lg:text-4xl")} font-bold text-center ${isAfterFeature ? 'px-4 sm:px-0' : ''} ${subtitle ? 'mb-2' : 'mb-6'}`} set:html={markdownify(title)} />
+        
+        {subtitle && <h2 class={`text-lg md:text-xl text-center text-accent font-medium mb-6 ${isAfterFeature ? 'px-4 sm:px-0' : ''}`} set:html={markdownify(subtitle)} />}
 
-        <p class="mt-6" set:html={markdownify(content)} />
+        <p class={`mt-2 max-w-2xl mx-auto text-center ${isAfterFeature ? 'text-base md:text-lg px-4 sm:px-0' : ''}`} set:html={markdownify(content)} />
 
         {
           buttons && buttons.length > 0 && (
@@ -104,39 +137,36 @@ const image_position_classes = (() => {
         }
       </div>
       {
-        image && image_position != "top" && (
-          <div class={`${image_position_classes[2]}`}>
+        image && alternatePosition != "top" && (
+          <div class={`${image_position_classes[2]} p-0 h-full ${isAfterFeature ? 'md:col-5 lg:col-5' : ''}`}>
             {image.includes("psek_logo_black.png") ? (
               <>
-                <Image
-                  class="object-contain rounded-md w-2/3 mx-auto dark:hidden"
-                  alt={title || "Section content"}
-                  src="/images/psek_logo_black.png"
-                  width={500}
-                  height={333}
-                  loading="lazy"
-                />
-                <Image
-                  class="object-contain rounded-md w-2/3 mx-auto hidden dark:block"
-                  alt={title || "Section content"}
-                  src="/images/psek_logo_white.png"
-                  width={500}
-                  height={333}
-                  loading="lazy"
-                />
+                <div class="flex items-center justify-center h-full">
+                  <Image
+                    class="object-contain max-h-[180px] w-auto max-w-[80%] dark:hidden"
+                    alt={title || "Section content"}
+                    src="/images/psek_logo_black.png"
+                    width={180}
+                    height={180}
+                    loading="lazy"
+                  />
+                  <Image
+                    class="object-contain max-h-[180px] w-auto max-w-[80%] hidden dark:block"
+                    alt={title || "Section content"}
+                    src="/images/psek_logo_white.png"
+                    width={180}
+                    height={180}
+                    loading="lazy"
+                  />
+                </div>
               </>
             ) : (
               <Image
-                class={`object-contain rounded-md ${
-                  image.includes("pexels-kindelmedia-7667911.jpg") ||
-                  image.includes("pexels-kindelmedia-7667715.jpg")
-                    ? "w-2/3 mx-auto"
-                    : "w-full"
-                }`}
+                class={`object-cover w-full ${isAfterFeature ? 'h-full min-h-[300px]' : 'h-full'}`}
                 alt={title || "Section content"}
                 src={image}
-                width={500}
-                height={333}
+                width={800}
+                height={600}
                 loading="lazy"
               />
             )}
