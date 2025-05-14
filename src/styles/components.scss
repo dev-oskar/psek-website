@@ -92,6 +92,10 @@
   li > a {
     @apply text-sm hover:text-primary hover:underline;
   }
+  
+  .footer-logo {
+    @apply mb-4 scale-110 transform origin-left;
+  }
 }
 
 
@@ -170,6 +174,10 @@
 
   li > a {
     @apply text-sm hover:text-primary hover:underline;
+  }
+  
+  .footer-logo {
+    @apply mb-4 scale-110 transform origin-left;
   }
 }
 

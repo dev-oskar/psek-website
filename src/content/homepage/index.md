@@ -5,7 +5,7 @@ banner:
   title: "Polskie Stowarzyszenie Edukacji Konopnej"
   title_size: "text-4xl md:text-6xl"
   content: "Jesteśmy organizacją zajmującą się edukacją i promocją wykorzystania konopi w różnych gałęziach życia i gospodarki."
-  image: /images/PSEK-Logo-Main-transparent.png
+  image: /images/psek_logo_black.png
   buttons:
     - label: Skontakuj się z nami!
       color: accent

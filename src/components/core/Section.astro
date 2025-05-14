@@ -51,19 +51,40 @@ const image_position_classes = (() => {
       {
         image && image_position === "top" && (
           <div class={`${image_position_classes[2]}`}>
-            <Image
-              class={`mr-auto ml-auto object-contain ${
-                image.includes("pexels-kindelmedia-7667911.jpg") ||
-                image.includes("pexels-kindelmedia-7667715.jpg")
-                  ? "w-1/3"
-                  : "w-1/2"
-              }`}
-              alt={title || "Section content"}
-              src={image}
-              width={500}
-              height={333}
-              loading="lazy"
-            />
+            {image.includes("psek_logo_black.png") ? (
+              <>
+                <Image
+                  class="mr-auto ml-auto object-contain w-1/2 dark:hidden"
+                  alt={title || "Section content"}
+                  src="/images/psek_logo_black.png"
+                  width={500}
+                  height={333}
+                  loading="lazy"
+                />
+                <Image
+                  class="mr-auto ml-auto object-contain w-1/2 hidden dark:block"
+                  alt={title || "Section content"}
+                  src="/images/psek_logo_white.png"
+                  width={500}
+                  height={333}
+                  loading="lazy"
+                />
+              </>
+            ) : (
+              <Image
+                class={`mr-auto ml-auto object-contain ${
+                  image.includes("pexels-kindelmedia-7667911.jpg") ||
+                  image.includes("pexels-kindelmedia-7667715.jpg")
+                    ? "w-1/3"
+                    : "w-1/2"
+                }`}
+                alt={title || "Section content"}
+                src={image}
+                width={500}
+                height={333}
+                loading="lazy"
+              />
+            )}
           </div>
         )
       }
@@ -85,19 +106,40 @@ const image_position_classes = (() => {
       {
         image && image_position != "top" && (
           <div class={`${image_position_classes[2]}`}>
-            <Image
-              class={`object-contain rounded-md ${
-                image.includes("pexels-kindelmedia-7667911.jpg") ||
-                image.includes("pexels-kindelmedia-7667715.jpg")
-                  ? "w-2/3 mx-auto"
-                  : "w-full"
-              }`}
-              alt={title || "Section content"}
-              src={image}
-              width={500}
-              height={333}
-              loading="lazy"
-            />
+            {image.includes("psek_logo_black.png") ? (
+              <>
+                <Image
+                  class="object-contain rounded-md w-2/3 mx-auto dark:hidden"
+                  alt={title || "Section content"}
+                  src="/images/psek_logo_black.png"
+                  width={500}
+                  height={333}
+                  loading="lazy"
+                />
+                <Image
+                  class="object-contain rounded-md w-2/3 mx-auto hidden dark:block"
+                  alt={title || "Section content"}
+                  src="/images/psek_logo_white.png"
+                  width={500}
+                  height={333}
+                  loading="lazy"
+                />
+              </>
+            ) : (
+              <Image
+                class={`object-contain rounded-md ${
+                  image.includes("pexels-kindelmedia-7667911.jpg") ||
+                  image.includes("pexels-kindelmedia-7667715.jpg")
+                    ? "w-2/3 mx-auto"
+                    : "w-full"
+                }`}
+                alt={title || "Section content"}
+                src={image}
+                width={500}
+                height={333}
+                loading="lazy"
+              />
+            )}
           </div>
         )
       }

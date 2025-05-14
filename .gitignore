@@ -29,3 +29,4 @@ node_modules
 
 CLAUDE.md
 **/.claude/settings.local.json
+__unconfig_astro.config.mjs

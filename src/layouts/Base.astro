@@ -131,6 +131,12 @@ const _noindex =
     <!-- favicon -->
     <link rel="shortcut icon" href={config.site.favicon} />
     <link
+      rel="preload"
+      href="/images/background_video.mp4"
+      as="video"
+      type="video/mp4"
+    />
+    <link
       rel="apple-touch-icon"
       sizes="180x180"
       href="/images/favicons/apple-touch-icon.png"
@@ -290,6 +296,46 @@ const _noindex =
     </script>
   </head>
   <body class="transition-colors duration-500">
+    <!-- Background video -->
+    <div class="fixed inset-0 w-full h-full z-[-1] overflow-hidden">
+      <video
+        autoplay
+        loop
+        muted
+        playsinline
+        class="absolute object-cover w-full h-full opacity-30 dark:opacity-20"
+      >
+        <source src="/images/background_video.mp4" type="video/mp4" />
+      </video>
+      <!-- Overlay to adjust contrast with theme -->
+      <div class="absolute inset-0 bg-white/30 dark:bg-black/40"></div>
+    </div>
+
+    <script is:inline>
+      // Ensure video autoplay works across browsers
+      document.addEventListener("DOMContentLoaded", () => {
+        const video = document.querySelector("video");
+        if (video) {
+          video.playbackRate = 0.4;
+
+          video.play().catch((error) => {
+            console.log("Autoplay prevented:", error);
+
+            // Add a click handler to start video on first user interaction
+            document.body.addEventListener(
+              "click",
+              () => {
+                video
+                  .play()
+                  .catch((e) => console.log("Still cannot play video:", e));
+              },
+              { once: true }
+            );
+          });
+        }
+      });
+    </script>
+
     <TwSizeIndicator />
     <Header />
     <main

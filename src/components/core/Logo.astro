@@ -1,15 +1,19 @@
 ---
 import config from "@/config/config.json";
 import { Image } from "astro:assets";
-const { src, showText } = Astro.props;
+const { src, showText = false } = Astro.props;
 const {
   logo,
+  logo_dark,
+  logo_light,
   logo_text,
   logo_width,
   logo_height,
   title,
 }: {
   logo: string;
+  logo_dark: string;
+  logo_light: string;
   logo_text: string;
   logo_width: string;
   logo_height: string;
@@ -22,14 +26,24 @@ const text = logo_text;
 <a href="/" class="navbar-brand flex flex-row items-center">
   {
     src || logo ? (
-      <Image
-        class="h-9 w-auto"
-        src={src || logo}
-        alt=""
-        width={Number(logo_width)}
-        height={Number(logo_height)}
-        loading="eager"
-      />
+      <>
+        <Image
+          class="h-16 w-auto dark:hidden"
+          src={src || logo_light}
+          alt={title}
+          width={Number(logo_width)}
+          height={Number(logo_height)}
+          loading="eager"
+        />
+        <Image
+          class="h-16 w-auto hidden dark:block"
+          src={src || logo_dark}
+          alt={title}
+          width={Number(logo_width)}
+          height={Number(logo_height)}
+          loading="eager"
+        />
+      </>
     ) : (
       <svg
         width="50"

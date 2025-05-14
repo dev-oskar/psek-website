@@ -17,7 +17,7 @@ input#nav-toggle:checked ~ div[class*="order-4"] #nav-menu {
   animation: reduce-header linear both;
   animation-timeline: scroll();
   animation-range: 0 150px;
-  @apply sticky top-0 z-50 transition-all duration-300 py-6 mx-auto;
+  @apply sticky top-0 z-50 transition-all duration-300 py-10 mx-auto;
 }
 
 .dark .header {
@@ -27,7 +27,7 @@ input#nav-toggle:checked ~ div[class*="order-4"] #nav-menu {
 
 @keyframes reduce-header {
   100% {
-    padding-block: 1rem;
+    padding-block: 1.5rem;
     -webkit-backdrop-filter: blur(15px);
     backdrop-filter: blur(15px);
     box-shadow: 0 5px 30px -5px var(--shadow-color), 0 0 3px 1px var(--shadow-color);
@@ -39,11 +39,11 @@ input#nav-toggle:checked ~ div[class*="order-4"] #nav-menu {
 
 // navbar items
 .navbar {
-  @apply relative flex flex-wrap items-center justify-between;
+  @apply relative flex flex-wrap items-center justify-between py-3;
 }
 
 .navbar-brand {
-  @apply text-xl font-semibold text-text;
+  @apply text-xl font-semibold text-text py-2;
   image {
     @apply max-h-full max-w-full;
   }

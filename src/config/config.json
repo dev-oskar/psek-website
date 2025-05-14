@@ -6,6 +6,8 @@
     "trailing_slash": false,
     "favicon": "/images/favicons/favicon.ico",
     "logo": "/images/PSEK-Logo-Main-transparent.png",
+    "logo_dark": "/images/psek_logo_white.png",
+    "logo_light": "/images/psek_logo_black.png",
     "logo_width": "47",
     "logo_height": "47",
     "logo_text": "PSEK"
