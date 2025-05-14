@@ -20,128 +20,130 @@ const { pathname } = Astro.url;
 ---
 
 <header class="header">
-  <nav class="navbar container">
-    <!-- logo -->
-    <div class="order-0">
-      <Logo />
-    </div>
+  <div class="equal-width-section"> <!-- Container to match the hero width -->
+    <nav class="navbar">
+      <!-- logo -->
+      <div class="order-0">
+        <Logo />
+      </div>
 
-    <!-- navbar toggler - moved to the right side -->
-    <input id="nav-toggle" type="checkbox" class="hidden" />
-    
-    <!-- spacer to push hamburger to the right -->
-    <div class="flex-grow order-1"></div>
-    
-    <!-- Theme toggle for desktop only -->
-    <div class="hidden lg:flex order-2 items-center mr-2">
-      <ThemeToggle />
-    </div>
-    
-    <!-- Hamburger menu buttons -->
-    <label
-      id="show-button"
-      for="nav-toggle"
-      class="order-3 flex cursor-pointer items-center lg:hidden ml-2"
-    >
-      <svg class="h-6 fill-current" viewBox="0 0 20 20">
-        <title>Menu Open</title>
-        <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
-      </svg>
-    </label>
-    <label
-      id="hide-button"
-      for="nav-toggle"
-      class="order-3 hidden cursor-pointer items-center lg:hidden ml-2"
-    >
-      <svg class="h-6 fill-current" viewBox="0 0 20 20">
-        <title>Menu Close</title>
-        <polygon
-          points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
-          transform="rotate(45 10 10)"></polygon>
-      </svg>
-    </label>
-    <!-- /navbar toggler -->
-    
-    <!-- Mobile nav menu - full width -->
-    <div class="order-4 w-full lg:w-auto lg:order-1">
-      <ul
-        id="nav-menu"
-        class="navbar-nav hidden w-full absolute top-full left-0 bg-surface shadow-md lg:shadow-none lg:static lg:flex lg:w-auto lg:space-x-4 lg:mr-4 lg:bg-transparent items-center"
+      <!-- navbar toggler -->
+      <input id="nav-toggle" type="checkbox" class="hidden" />
+      
+      <!-- spacer to push hamburger to the right -->
+      <div class="flex-grow order-1"></div>
+      
+      <!-- Theme toggle for desktop only -->
+      <div class="hidden lg:flex order-2 items-center mr-4">
+        <ThemeToggle />
+      </div>
+      
+      <!-- Hamburger menu buttons -->
+      <label
+        id="show-button"
+        for="nav-toggle"
+        class="order-3 flex cursor-pointer items-center lg:hidden ml-2"
       >
-        {/* Theme toggle for mobile only */}
-        <li class="nav-item lg:hidden border-b border-gray-200 dark:border-gray-700 pb-2 mb-2 flex items-center">
-          <span class="nav-link inline-block px-3 py-2">Tryb:</span>
-          <div class="flex items-center">
-            <ThemeToggle />
-          </div>
-        </li>
-        
-        {
-          main.map((menu) => (
-            <>
-              {menu.hasChildren ? (
-                <li class="nav-item nav-dropdown group relative cursor-pointer dropdown-button">
-                  <span
-                    role="button"
-                    aria-expanded="false"
-                    aria-haspopup="true"
-                    tabindex="0"
-                    class={`nav-link inline-flex items-center ${
-                      menu.children?.map(({ url }) => url).includes(pathname) ||
-                      menu.children
-                        ?.map(({ url }) => `${url}/`)
-                        .includes(pathname)
-                        ? "active"
-                        : ""
-                    }`}
-                  >
-                    {menu.name}
-                    <svg
-                      class="h-4 w-4 fill-current"
-                      viewBox="0 0 20 20"
-                      aria-hidden="true"
+        <svg class="h-6 fill-current" viewBox="0 0 20 20">
+          <title>Menu Open</title>
+          <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
+        </svg>
+      </label>
+      <label
+        id="hide-button"
+        for="nav-toggle"
+        class="order-3 hidden cursor-pointer items-center lg:hidden ml-2"
+      >
+        <svg class="h-6 fill-current" viewBox="0 0 20 20">
+          <title>Menu Close</title>
+          <polygon
+            points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
+            transform="rotate(45 10 10)"></polygon>
+        </svg>
+      </label>
+      <!-- /navbar toggler -->
+      
+      <!-- Menu items -->
+      <div class="order-4 w-full lg:w-auto lg:order-1">
+        <ul
+          id="nav-menu"
+          class="navbar-nav hidden w-full absolute top-full left-0 right-0 equal-width-section mx-auto bg-surface shadow-md lg:shadow-none lg:static lg:flex lg:space-x-6 lg:bg-transparent items-center lg:justify-end"
+        >
+          {/* Theme toggle for mobile only */}
+          <li class="nav-item lg:hidden border-b border-gray-200 dark:border-gray-700 pb-2 mb-2 flex items-center">
+            <span class="nav-link inline-block px-3 py-2">Tryb:</span>
+            <div class="flex items-center">
+              <ThemeToggle />
+            </div>
+          </li>
+          
+          {
+            main.map((menu) => (
+              <>
+                {menu.hasChildren ? (
+                  <li class="nav-item nav-dropdown group relative cursor-pointer dropdown-button">
+                    <span
+                      role="button"
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      tabindex="0"
+                      class={`nav-link inline-flex items-center ${
+                        menu.children?.map(({ url }) => url).includes(pathname) ||
+                        menu.children
+                          ?.map(({ url }) => `${url}/`)
+                          .includes(pathname)
+                          ? "active"
+                          : ""
+                      }`}
                     >
-                      <title>Expand dropdown menu</title>
-                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                    </svg>
-                  </span>
-                  <ul id="dropdown" class="nav-dropdown-list">
-                    {menu.children?.map((child) => (
-                      <li class="nav-dropdown-item">
-                        <a
-                          href={child.url}
-                          aria-label="submenu for {child.name}"
-                          class={`nav-dropdown-link block ${
-                            (pathname === `${child.url}/` ||
-                              pathname === child.url) &&
-                            "text-secondary"
-                          }`}
-                        >
-                          {child.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-              ) : (
-                <li class="nav-item">
-                  <a
-                    href={menu.url}
-                    class={`nav-link inline-block lg:block ${
-                      (pathname === `${menu.url}/` || pathname === menu.url) &&
-                      "active"
-                    }`}
-                  >
-                    {menu.name}
-                  </a>
-                </li>
-              )}
-            </>
-          ))
-        }
-      </ul>
-    </div>
-  </nav>
+                      {menu.name}
+                      <svg
+                        class="h-4 w-4 fill-current"
+                        viewBox="0 0 20 20"
+                        aria-hidden="true"
+                      >
+                        <title>Expand dropdown menu</title>
+                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                      </svg>
+                    </span>
+                    <ul id="dropdown" class="nav-dropdown-list">
+                      {menu.children?.map((child) => (
+                        <li class="nav-dropdown-item">
+                          <a
+                            href={child.url}
+                            aria-label="submenu for {child.name}"
+                            class={`nav-dropdown-link block ${
+                              (pathname === `${child.url}/` ||
+                                pathname === child.url) &&
+                              "text-secondary"
+                            }`}
+                          >
+                            {child.name}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                ) : (
+                  <li class="nav-item">
+                    <a
+                      href={menu.url}
+                      class={`nav-link inline-block lg:block ${
+                        (pathname === `${menu.url}/` || pathname === menu.url) &&
+                        "active"
+                      }`}
+                    >
+                      {menu.name}
+                    </a>
+                  </li>
+                )}
+              </>
+            ))
+          }
+        </ul>
+      </div>
+    </nav>
+  </div>
 </header>
 
 <script is:inline>

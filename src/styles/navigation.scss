@@ -54,7 +54,7 @@ input#nav-toggle:checked ~ div[class*="order-4"] #nav-menu {
 }
 
 .nav-link {
-  @apply block p-3 py-2 text-xl md:text-base text-text transition hover:text-secondary md:px-2 lg:inline-block;
+  @apply block p-3 py-2 text-xl md:text-base text-text transition hover:text-secondary md:px-2 lg:inline-block lg:whitespace-nowrap;
 
   &.active {
     @apply relative;
